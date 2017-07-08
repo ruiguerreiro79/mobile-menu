@@ -1,0 +1,58 @@
+-----------------------------------------------------------
+
+Version 1.0
+
+    - Initial Release
+
+Version 2.0
+
+    - Major Update
+    - New options Framework ( Titan Framework )
+    - Fremius Framework
+
+Version 2.1
+
+    - Css Nav Issue fix
+    - Include Fremius has plugin author
+    - Fix uninstall hook
+
+Version 2.2
+
+    - New field to specific and alternative URL for the logo link
+    - Css Fixes
+    - Changed Icon prefixing to avoid conflicts
+    - Fixed Fatal error in mob menu.php
+
+Version 2.3
+
+    - New! - Google Fonts in the menu items 
+    - New! - Background image in the menu panels
+    - New! - Google Fonts in the menu items 
+    - New! - Naked Header with transparent background
+    - New! - Option to disable Url in the header
+    - Improved! - Right/left Menu Panel Width in percentage(%) and not only in Pixels(px)
+    - Improved! - Improved mechanism to automatically hide the menus of the themes
+    - Improved! - Improved Anchor Linking 
+    - Improved! - Increased the maximum width trigger, to keep the menu visible in larger resolutions 
+    - Improved! - Auto close open sub menus when expandin a new sub menu
+    - Improved! - General css fixes 
+
+Version 2.4
+
+    - New!   - Gradient Background css in the menu panels
+    - New!   - Use the menus icons has buttons (option to choose open a menu or a link)
+    - New!   - Add Text input after left menu and before the right menu
+    - New!   - Click in the page to close the menus
+    - New!   - Select Icon of the menu icons
+    - New!   - Icon menu Font size
+    - New!   - Header Logo/Text alignment/spacing
+    - New!   - Option to detach sticky elements
+    - Improved! - Code was entirely rebuild to an Object Oriented programming approach.
+    - Improved! - Sticky elements bug fix
+    - Improved! - Implement depencies on script loadind
+    - Improved! - Increased the maximum width trigger, to keep the menu visible in larger resolutions 
+    - Improved! - General css fixes 
+
+
+-----------------------------------------------------------
+
