@@ -133,7 +133,19 @@ class WP_Mobile_Menu_Core {
 			if ( $titan->getOption( 'sticky_elements' ) ) {
 				$sticky_el_data_detach = 'data-detach-el="' . $titan->getOption( 'sticky_elements' ) . '"';
 			}
-			$output .= '<div class="mob-menu-header-holder mobmenu" ' . $sticky_el_data_detach . '>';
+
+			$display_type = $titan->getOption( 'menu_display_type' );
+
+			if ( 'slideout-over' === $display_type ) {
+				$menu_display_type =' data-menu-display="mob-menu-slideout-over" ';
+			} else {
+				$menu_display_type = ' data-menu-display="mob-menu-slideout" ';
+			}
+
+			if ( $titan->getOption( 'sticky_elements' ) ) {
+				$sticky_el_data_detach = 'data-detach-el="' . $titan->getOption( 'sticky_elements' ) . '"';
+			}
+			$output .= '<div class="mob-menu-header-holder mobmenu" ' . $sticky_el_data_detach . $menu_display_type .'>';
 
 			if ( $titan->getOption( 'enable_left_menu' ) && ! $left_logged_in_user ) {
 				$left_menu_text = '';
@@ -266,6 +278,7 @@ class WP_Mobile_Menu_Core {
 				?>
 
 				<div class="mob-menu-left-panel mobmenu <?php echo $mobmenu_parent_link; ?> ">
+					<a href="#" class="mobmenu-left-bt"><i class="mob-icon-cancel mob-cancel-button"></i></a>
 					<div class="mobmenu_content">
 				<?php
 
@@ -313,6 +326,7 @@ class WP_Mobile_Menu_Core {
 				?>
 				<!--  Right Panel Structure -->
 				<div class="mob-menu-right-panel mobmenu <?php echo $mobmenu_parent_link; ?> ">
+					<a href="#" class="mobmenu-right-bt"><i class="mob-icon-cancel mob-cancel-button"></i></a>
 					<div class="mobmenu_content">
 					
 			<?php

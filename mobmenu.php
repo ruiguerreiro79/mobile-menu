@@ -4,7 +4,7 @@
  * Plugin Name: Mobile Menu
  * Plugin URI: http://www.wpmobilemenu.com/
  * Description: An easy to use WordPress responsive mobile menu. Keep your mobile visitors engaged.
- * Version: 2.5
+ * Version: 2.5.1
  * Author: Takanakui
  * Author URI: http://www.wpmobilemenu.com/
  * License: GPLv2
@@ -133,6 +133,7 @@ if ( ! class_exists( 'WP_Mobile_Menu' ) ) {
 			add_action( 'wp_enqueue_scripts', array( $this->mobmenu_core, 'frontend_enqueue_scripts' ), 100 );
 			// Add menu display type class to the body.
 			add_action( 'init', array( $this->mobmenu_core, 'add_body_class' ) );
+
 		}
 
 		/**

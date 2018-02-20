@@ -95,17 +95,25 @@ if ( $titan->getOption( 'enabled' ) ) {
 
 		}
 		?>
+		.mob-menu-left-panel .mobmenu-left-bt, .mob-menu-right-panel .mobmenu-right-bt {
+    		position: absolute;
+    		right: 0px;
+    		top: 10px;
+    		font-size: 30px;
+		}
 
-		 .mob-menu-slideout  .mob-cancel-button{
+		.mob-menu-slideout  .mob-cancel-button{
 			display: none;
-		 }
+		}
 
 		.mobmenu, .mob-menu-left-panel, .mob-menu-right-panel {
 			display: block;
-		}	
+		}
+
 		.mobmenur-container i {
 			color: <?php echo $titan->getOption( 'right_menu_icon_color' ); ?>;
 		}
+
 		.mobmenul-container i {
 			color: <?php echo $titan->getOption( 'left_menu_icon_color' ); ?>;
 		}
@@ -139,6 +147,10 @@ if ( $titan->getOption( 'enabled' ) ) {
 			color: <?php echo $titan->getOption( 'left_panel_submenu_text_color' ); ?>;
 			width: 100%;
 			position: initial;
+		}
+
+		.mob-menu-slideout-over .mobmenu_content {
+			padding-top: 40px;
 		}
 
 		.mob-menu-left-bg-holder {
@@ -336,6 +348,11 @@ if ( $titan->getOption( 'enabled' ) ) {
 		.mobmenu-overlay {
 			opacity: 0;
 		}
+
+		.mob-menu-slideout-top .mobmenu-overlay, .mob-menu-slideout .mob-menu-right-panel .mob-cancel-button, .mob-menu-slideout .mob-menu-left-panel .mob-cancel-button {
+    		display: none!important;
+		}
+
 		.show-nav-left .mobmenu-overlay, .show-nav-right .mobmenu-overlay {
 			width: 100%;
 			height: 100%;

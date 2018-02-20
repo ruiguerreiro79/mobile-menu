@@ -102,6 +102,11 @@ Not available at the moment
  
 == Changelog ==  
 
+= 2.5.1 =
+* New!      - New close button when using the Slideout Over content menu display type
+* New!      - New Smooth Scroll animation in page internas navigation links
+* Fix!      - Add specific body classes with jQuery when the theme doesn't implement the body_class()
+
 = 2.5 =
 * New!      - Naked Header
 * New!      - Display Type, Slideout over content 

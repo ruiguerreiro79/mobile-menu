@@ -70,6 +70,12 @@ Version 2.5
     - Fix! - Improvement in the menu html markup and errors in the W3C Validator 
     - Fix! - Update Freemius SDK
 
+Version 2.5.1
+
+    - New! - New close button when using the Slideout Over content menu display type
+    - New! - New Smooth Scroll animation in page internas navigation links
+    - Fix! - Add specific body classes with jQuery when the theme doesn't implement the body_class()
+
 
 -----------------------------------------------------------
 
