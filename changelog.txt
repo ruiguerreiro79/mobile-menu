@@ -39,19 +39,36 @@ Version 2.3
 
 Version 2.4
 
-    - New!   - Gradient Background css in the menu panels
-    - New!   - Use the menus icons has buttons (option to choose open a menu or a link)
-    - New!   - Add Text input after left menu and before the right menu
-    - New!   - Click in the page to close the menus
-    - New!   - Select Icon of the menu icons
-    - New!   - Icon menu Font size
-    - New!   - Header Logo/Text alignment/spacing
-    - New!   - Option to detach sticky elements
-    - Improved! - Code was entirely rebuild to an Object Oriented programming approach.
-    - Improved! - Sticky elements bug fix
-    - Improved! - Implement depencies on script loadind
-    - Improved! - Increased the maximum width trigger, to keep the menu visible in larger resolutions 
-    - Improved! - General css fixes 
+    - New! – Gradient Background css in the menu panels
+    - New! – Use the menus icons has buttons (option to choose open a menu or a link)
+    - New! – Add Text input after left menu and before the right menu
+    - New! – Click in the page to close the menus
+    - New! – Select Icon of the menu icons
+    - New! – Icon menu Font size
+    - New! – Header Logo/Text alignment/spacing
+    - New! – Option to detach sticky elements
+    - Improved! – Code was entirely rebuild to an Object Oriented programming approach.
+    - Improved! – Sticky elements bug fix
+    - Improved! – Implement depencies on script loadind
+    - Improved! – Increased the maximum width trigger, to keep the menu visible in larger resolutions
+    - Improved! – General css fixes
+
+Version 2.5
+
+    - New! - Naked Header
+    - New! - Display Type, Slideout over content 
+    - New! - Turn on/off Header Logo
+    - New! - Overlay Mask when the menu is opened 
+    - New! - Click Entire parent link to open submenu
+    - New! - Font and color settings to the before and after menu icon text
+    - New! - Custom js field to help in any tweak or fast fix 
+    - New! - Menu Background size settings 
+    - New! - New Menu padding( for Left and Right Menu )
+    - Fix! - Promotion Banner was remove from the WordPress admin dashboard, and dismisse button already works in the Mobile Menu options banner.
+    - Fix! - Video autoplay issue
+    - Fix! - Error in the woocommerce page regarding the images sizes due to agressive Woocommerce css rule.
+    - Fix! - Improvement in the menu html markup and errors in the W3C Validator 
+    - Fix! - Update Freemius SDK
 
 
 -----------------------------------------------------------

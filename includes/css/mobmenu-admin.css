@@ -225,4 +225,7 @@
     color: #29aecc;
     font-size: 16px;
 }
-
+/* Adjust Titan Framework Select2 Size*/
+td.second.tf-select .select2 {
+    width: 50%!important;
+}

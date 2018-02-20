@@ -3,10 +3,8 @@
     *
     *   Javascript Functions
     *   ------------------------------------------------
-    *   WP Mobile Menu PRO
+    *   WP Mobile Menu
     *   Copyright WP Mobile Menu 2017 - http://www.wpmobilemenu.com
-    *
-    *
     *
     */
 
@@ -16,12 +14,13 @@
  (function ($) {
  jQuery( document ).ready( function() {
 
-        //Hide deprecated field
-        jQuery('#mobmenu_header_font_size').parent().parent().hide();
+        //Hide deprecated field.
+        jQuery( '#mobmenu_header_font_size' ).parent().parent().hide();
+        jQuery( '#mobmenu_enabled_logo' ).parent().parent().hide();
       
-        if( $( ".mobmenu-icon-holder" ).parent().find('input').length ) {
-            var icon_key = $( ".mobmenu-icon-holder" ).parent().find('input').val();
-            $( ".mobmenu-icon-holder" ).html( '<span class="mobmenu-item mob-icon-' + icon_key + '" data-icon-key="' + icon_key + '"></span>');             
+        if( $( '.mobmenu-icon-holder' ).parent().find('input').length ) {
+            var icon_key = $( '.mobmenu-icon-holder' ).parent().find('input').val();
+            $( '.mobmenu-icon-holder' ).html( '<span class="mobmenu-item mob-icon-' + icon_key + '" data-icon-key="' + icon_key + '"></span>');             
         }
 
         $( document ).on( "click", ".mobmenu-close-overlay" , function () {
@@ -250,20 +249,20 @@
                                   
                 $( "#mobmenu_search_icons" ).focus();         
     });
-                                    
-    
-  $( "#menu-to-edit li.menu-item" ).each( function() {
 
-        var menu_item = $(this);
-        var menu_id = $( "input#menu" ).val();
-        var title = menu_item.find( ".menu-item-title" ).text();
-        var id = parseInt(menu_item.attr( "id" ).match(/[0-9]+/)[0], 10);
-        var selected_icon = '';
-        var full_content = '';
+    $( document ).on( 'click', '.wp-mobile-menu-notice .notice-dismiss' , function( e ) {
+        
+        $.ajax({
+                  type: 'POST',
+                  url: ajaxurl,
 
-        $( ".item-title", menu_item ).append( "<i class='mobmenu-item-settings mob-icon-mobile-2'><span>Set Icon</span></i>" );
+                  data: {
+                      action: 'dismiss_wp_mobile_notice',
+                      security: jQuery( this ).parent().attr( 'data-ajax-nonce' )
+                      }
+              });
+  });
 
-    });    
 
 }); 
     

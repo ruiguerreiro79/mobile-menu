@@ -1,19 +1,19 @@
 === WP Mobile Menu ===
 Contributors: takanakui, freemius
 link: http://profiles.wordpress.org/takanakui
-Tags:   mobile, navigation, responsive, menu,  responsive menu, mobile menu,  tablet menu, wordpress responsive menu, wordpress mobile menu
-Requires at least: 3.8.1
-Tested up to: 4.7
-Stable tag: 2.4
+Tags:   mobile, navigation, responsive, menu,  responsive menu, mobile menu,  tablet menu, hamburger menu, hamburger, wordpress responsive menu, wordpress mobile menu
+Requires at least: 4.0
+Tested up to: 4.9
+Stable tag: 2.5
+Requires PHP: 5.2.4
 License: GPLv3
 License URI: http://www.gnu.org/licenses/gpl-3.0.html
+Donate link: http://www.wpmobilemenu.com
 
 
 == Description == 
 
-WP Mobile Menu is an easy to use WordPress responsive mobile menu. Keep your mobile visitors engaged, providing then easy access to your site content. 
-
-Don't lose visitors because they can't click in your current menu items when displayed in a mobile/tablet device.  It's possible to have two Responsive Mobile Menus per page, including an fixed header where you can place your logo/brand. 
+WP Mobile Menu is an easy to use WordPress responsive mobile menu. Keep your mobile visitors engaged, providing then easy access to your site content using any device smartphone/tablet/desktop. Don't lose visitors because they can't click in your current menu items when displayed in a mobile/tablet device.  It's possible to have two Responsive Mobile Menus per page, including an fixed header where you can place your logo/brand or just a simple hamburguer menu. 
 
 The Menus will be displayed at a resolution defined by you, and there are some options to hide the current theme menus. It's easy to add custom content to the left or right menu panel, just drag and drop your content to the specific left/right panel widgets.
 
@@ -25,6 +25,15 @@ DEMO: <a target="_blank" href="http://www.wpmobilemenu.com/">http://www.wpmobile
 ###Features:
 
 <ul>
+<li> *New - Naked Header </li>
+<li> *New - Display Type, Slideout over content </li>
+<li> *New - Click Entire parent link to open submenu </li>
+<li> *New - Overlay Mask when the menu is opened  </li>
+<li> *New - Font and color settings to the before and after menu icon text </li>
+<li> *New - Custom js field to help in any tweak or fast fix  </li>
+<li> *New - Turn on/off Header Logo </li>
+<li> *New - Menu Background size settings  </li>
+<li> *New - New Menu padding( for Left and Right Menu ) </li>
 <li> 2 Menus, left and right </li>
 <li> Logo/Text Branding  </li>
 <li> Background image for the menus  </li>
@@ -39,7 +48,6 @@ DEMO: <a target="_blank" href="http://www.wpmobilemenu.com/">http://www.wpmobile
 <li> Customise the styling of your mobile menus </li>
 <li> and much more, install and see it for yourself </li>
 </ul>
-
 
 WP Mobile Menu it's very easy to use
 
@@ -70,7 +78,6 @@ WP Mobile Menu it's very easy to use
 
 <a target="_blank" href="http://www.wpmobilemenu.com/pricing">More info about the Pro version</a>
 
-
 == Installation ==
 
 1. Go to the Plugins Menu in WordPress
@@ -88,35 +95,51 @@ Download and install the .zip file in the Wordpress plugin page of your website
 3. Done!
 
 == Frequently Asked Questions == 
-
-<a target="_blank" href="http://www.wpmobilemenu.com/faq">Check our FAQS</a>
+Not available at the moment
 
 == Upgrade Notice ==
 Not available at the moment
  
 == Changelog ==  
 
-= 2.4 = 
-* New!   - Gradient Background css in the menu panels
-* New!   - Use the menus icons has buttons (option to choose open a menu or a link)
-* New!   - Add Text input after left menu and before the right menu
-* New!   - Click in the page to close the menus
-* New!   - Select Icon of the menu icons
-* New!   - Icon menu Font size
-* New!   - Header Logo/Text alignment/spacing
-* New!   - Option to detach sticky elements
-* Improved! - Code was entirely rebuild to an Object Oriented programming approach.
-* Improved! - Sticky elements bug fix
-* Improved! - Implement depencies on script loadind
-* Improved! - Increased the maximum width trigger, to keep the menu visible in larger resolutions 
-* Improved! - General css fixes 
+= 2.5 =
+* New!      - Naked Header
+* New!      - Display Type, Slideout over content 
+* New!      - Turn on/off Header Logo
+* New!      - Overlay Mask when the menu is opened 
+* New!      - Click Entire parent link to open submenu
+* New!      - Font and color settings to the before and after menu icon text
+* New!      - Custom js field to help in any tweak or fast fix 
+* New!      - Menu Background size settings 
+* New!      - New Menu padding( for Left and Right Menu )
+* Fix!      - Promotion Banner was remove from the WordPress admin dashboard, and dismisse button already works in the Mobile Menu options banner.
+* Fix!      - Video autoplay issue
+* Fix!      - Error in the woocommerce page regarding the images sizes due to agressive Woocommerce css rule.
+* Fix!      - Improvement in the menu html markup and errors in the W3C Validator 
+* Improved! - Update Freemius SDK
+
+= 2.4 =
+* New!      – Gradient Background css in the menu panels
+* New!      – Use the menus icons has buttons (option to choose open a menu or a link)
+* New!      – Add Text input after left menu and before the right menu
+* New!      – Click in the page to close the menus
+* New!      – Select Icon of the menu icons
+* New!      – Icon menu Font size
+* New!      – Header Logo/Text alignment/spacing 
+* New!      – Option to detach sticky elements
+* Improved! – Code was entirely rebuild to an Object Oriented programming approach.
+* Improved! – Sticky elements bug fix
+* Improved! – Implement depencies on script loadind
+* Improved! – Increased the maximum width trigger, to keep the menu visible in larger resolutions
+* Improved! – General css fixes
 
 
 = 2.3 = 
-* New!   - Google Fonts in the menu items 
-* New!   - Background image in the menu panels
-* New!   - Google Fonts in the menu items 
-* New!   - Option to disable Url in the header
+* New!      - Google Fonts in the menu items 
+* New!      - Background image in the menu panels
+* New!      - Google Fonts in the menu items 
+* New!      - Naked Header with transparent background
+* New!      - Option to disable Url in the header
 * Improved! - Right/left Menu Panel Width in percentage(%) and not only in Pixels(px)
 * Improved! - Improved mechanism to automatically hide the menus of the themes
 * Improved! - Improved Anchor Linking 
@@ -154,8 +177,13 @@ wrap that uses the translate3d property
 * Initial Version
 
 == Screenshots ==
-1. **General Settings.** 
-2. **Header Settings.** 
-3. **Color Settings.** 
-4. **Footer Settings.** 
-5. **Widget Settings.** 
+1. **WP Mobile Menu animated Demo.** 
+2. **WP Mobile Menu Header Types.** 
+3. **WP Mobile Menu Demo.** 
+4. **Left Menu Demo.** 
+5. **Right Menu Demo.** 
+6. **General Options.** 
+7. **Header options.** 
+8. **Left Menu options.** 
+9. **Right Menu options.** 
+10. **Color options.** 

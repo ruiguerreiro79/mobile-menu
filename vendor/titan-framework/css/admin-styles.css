@@ -531,3 +531,6 @@
 	position: absolute;
 	right: 10px;
 }
+.titan-framework-panel-wrap .wp-picker-container .iris-picker {
+	float: left;
+}

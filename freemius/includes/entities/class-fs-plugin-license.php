@@ -2,7 +2,7 @@
 	/**
 	 * @package     Freemius
 	 * @copyright   Copyright (c) 2015, Freemius, Inc.
-	 * @license     http://opensource.org/licenses/gpl-2.0.php GNU Public License
+	 * @license     https://www.gnu.org/licenses/gpl-3.0.html GNU General Public License Version 3
 	 * @since       1.0.5
 	 */
 
@@ -10,6 +10,9 @@
 		exit;
 	}
 
+	/**
+	 * Class FS_Plugin_License
+	 */
 	class FS_Plugin_License extends FS_Entity {
 
 		#region Properties
@@ -74,6 +77,11 @@
 			parent::__construct( $license );
 		}
 
+		/**
+		 * Get entity type.
+		 *
+		 * @return string
+		 */
 		static function get_type() {
 			return 'license';
 		}
