@@ -148,7 +148,12 @@ if ( $titan->getOption( 'enabled' ) ) {
 			width: 100%;
 			position: initial;
 		}
-
+		.mob-menu-left-panel .mob-cancel-button {
+			color: <?php echo $titan->getOption( 'left_panel_close_button_color' ); ?>;
+		}
+		.mob-menu-right-panel .mob-cancel-button {
+			color: <?php echo $titan->getOption( 'right_panel_close_button_color' ); ?>;
+		}
 		.mob-menu-slideout-over .mobmenu_content {
 			padding-top: 40px;
 		}

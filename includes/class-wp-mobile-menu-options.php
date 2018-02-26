@@ -1110,6 +1110,16 @@ class WP_Mobile_Menu_options {
 				'default' => get_option( 'mobmenu_opt_left_submenu_text_color', '#222' ),
 			) );
 
+			// Left Panel Close Button Color.
+			$colors_tab->createOption( array(
+				'name'    => __( 'Close Button Color', 'mob-menu-lang' ),
+				'id'      => 'left_panel_close_button_color',
+				'type'    => 'color',
+				'desc'    => '',
+				'alpha'   => true,
+				'default' => '#000',
+			) );
+
 			// Header Right Menu Section.
 			$colors_tab->createOption( array(
 				'name' => __( 'Right Menu Colors', 'mob-menu-lang' ),
@@ -1185,6 +1195,17 @@ class WP_Mobile_Menu_options {
 				'alpha'   => true,
 				'default' => get_option( 'mobmenu_opt_right_submenu_text_color', '#222' ),
 			) );
+
+			// Right Panel Close Button Color.
+			$colors_tab->createOption( array(
+				'name'    => __( 'Close Button Color', 'mob-menu-lang' ),
+				'id'      => 'right_panel_close_button_color',
+				'type'    => 'color',
+				'desc'    => '',
+				'alpha'   => true,
+				'default' => '#000',
+			) );
+
 			$panel->createOption( array(
 				'type' => 'save',
 			) );
