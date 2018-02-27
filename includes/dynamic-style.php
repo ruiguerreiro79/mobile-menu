@@ -355,7 +355,7 @@ if ( $titan->getOption( 'enabled' ) ) {
 		}
 
 		.mob-menu-slideout-top .mobmenu-overlay, .mob-menu-slideout .mob-menu-right-panel .mob-cancel-button, .mob-menu-slideout .mob-menu-left-panel .mob-cancel-button {
-    		display: none!important;
+			display: none!important;
 		}
 
 		.show-nav-left .mobmenu-overlay, .show-nav-right .mobmenu-overlay {
@@ -373,6 +373,7 @@ if ( $titan->getOption( 'enabled' ) ) {
 			-o-transition: .5s ease;
 			transition: .5s ease;
 			position: fixed;
+			cursor: pointer;
 		}
 
 		.mob-menu-slideout-over .mob-menu-left-panel {
