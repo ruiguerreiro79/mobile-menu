@@ -698,7 +698,7 @@ if ( $titan->getOption( 'enabled' ) ) {
 			color: inherit;
 		}
 		
-		.mobmenu .mob-cancel-button, .show-nav-left .mobmenu .mob-menu-icon, .show-nav-right .mobmenu .mob-menu-icon, .mob-menu-slideout-over.show-nav-left .mobmenur-container, .mob-menu-slideout-over.show-nav-right .mobmenul-container  {
+		.show-nav-right .mobmenur-container img, .show-nav-left .mobmenul-container img,  .mobmenu .mob-cancel-button, .show-nav-left .mobmenu .mob-menu-icon, .show-nav-right .mobmenu .mob-menu-icon, .mob-menu-slideout-over.show-nav-left .mobmenur-container, .mob-menu-slideout-over.show-nav-right .mobmenul-container  {
 			display:none;
 		}
 		

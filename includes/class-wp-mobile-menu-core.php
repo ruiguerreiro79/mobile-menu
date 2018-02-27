@@ -172,7 +172,7 @@ class WP_Mobile_Menu_Core {
 				if ( ! $titan->getOption( 'left_menu_icon_opt' ) || '' === $left_icon_image ) {
 					$output .= '<i class="mob-icon-' . $titan->getOption( 'left_menu_icon_font' ) . ' mob-menu-icon"></i><i class="mob-icon-cancel mob-cancel-button"></i>';
 				} else {
-					$output .= '<img src="' . $left_icon_image . '" alt="' . __( 'Left Menu Icon', 'mob-menu-lang' ) . '">';
+					$output .= '<img src="' . $left_icon_image . '" alt="' . __( 'Left Menu Icon', 'mob-menu-lang' ) . '"><i class="mob-icon-cancel mob-cancel-button"></i>';
 				}
 
 				$output .= $left_menu_text;
@@ -260,7 +260,7 @@ class WP_Mobile_Menu_Core {
 				if ( ! $titan->getOption( 'right_menu_icon_opt' ) || '' === $right_icon_image ) {
 					$output .= '<i class="mob-icon-' . $titan->getOption( 'right_menu_icon_font' ) . ' mob-menu-icon"></i><i class="mob-icon-cancel mob-cancel-button"></i>';
 				} else {
-					$output .= '<img src="' . $right_icon_image . '" alt="' . __( 'Right Menu Icon', 'mob-menu-lang' ) . '">';
+					$output .= '<img src="' . $right_icon_image . '" alt="' . __( 'Right Menu Icon', 'mob-menu-lang' ) . '"><i class="mob-icon-cancel mob-cancel-button"></i>';
 				}
 
 				$output .= $right_menu_text;
