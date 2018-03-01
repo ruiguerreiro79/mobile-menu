@@ -104,8 +104,12 @@ Not available at the moment
 
 = 2.5.1 =
 * New!      - New close button when using the Slideout Over content menu display type
-* New!      - New Smooth Scroll animation in page internas navigation links
+* New!      - New close button color settings
+* New!      - New Smooth Scroll animation in page internal navigation links
+* New!      - Stop scrolling when the menu panels are open  
 * Fix!      - Add specific body classes with jQuery when the theme doesn't implement the body_class()
+* Fix!      - IOS issue when clicking outside the menu papel to close the panel
+* Fix!      - New close button when using the Image Icon
 
 = 2.5 =
 * New!      - Naked Header
