@@ -66,17 +66,19 @@
               return false;
             }
           }
-  
+
           jQuery('body').toggleClass('show-nav-left'); 
-          
+
           if ( !jQuery( 'body' ).hasClass( 'show-nav-left') ){  
-  
+            jQuery( 'html' ).removeClass( 'hidden-overflow' );
             if ( jQuery( this ).hasClass( 'mob-cancel-button') || jQuery( this ).hasClass( 'mobmenu-left-bt' ) ) {
               return false;
             }
   
           } else {
-              e.preventDefault();
+            jQuery( 'html' ).addClass( 'hidden-overflow' );
+            e.preventDefault();
+           
           }
   
         });
@@ -93,13 +95,14 @@
           jQuery('body').toggleClass('show-nav-right'); 
           
           if ( !jQuery( 'body' ).hasClass( 'show-nav-right') ){
-  
+            jQuery( 'html' ).removeClass( 'hidden-overflow' );
             if ( jQuery( this ).hasClass( 'mob-cancel-button') || jQuery( this ).hasClass( 'mobmenu-right-bt' ) ) {
                 return false;
             }
   
           } else {
-              e.preventDefault();
+            jQuery( 'html' ).addClass( 'hidden-overflow' );
+            e.preventDefault();
           }
   
         });

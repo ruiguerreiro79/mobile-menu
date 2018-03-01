@@ -503,6 +503,10 @@ if ( $titan->getOption( 'enabled' ) ) {
 			overflow-x: hidden;
 		}
 
+		.hidden-overflow {
+			overflow: hidden!important;
+		}
+
 		/* Hides everything pushed outside of it */
 		.mob-menu-slideout .mob-menu-left-panel {
 			position: fixed;

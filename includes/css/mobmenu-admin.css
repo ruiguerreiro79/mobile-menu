@@ -229,3 +229,6 @@
 td.second.tf-select .select2 {
     width: 50%!important;
 }
+.titan-framework-panel-wrap td.second.tf-iframe iframe {
+    margin-left: -200px!important;
+}
