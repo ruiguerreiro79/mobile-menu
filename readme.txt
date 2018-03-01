@@ -4,7 +4,7 @@ link: http://profiles.wordpress.org/takanakui
 Tags:   mobile, navigation, responsive, menu,  responsive menu, mobile menu,  tablet menu, hamburger menu, hamburger, wordpress responsive menu, wordpress mobile menu
 Requires at least: 4.0
 Tested up to: 4.9
-Stable tag: 2.5
+Stable tag: 2.5.1
 Requires PHP: 5.2.4
 License: GPLv3
 License URI: http://www.gnu.org/licenses/gpl-3.0.html
