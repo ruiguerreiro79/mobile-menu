@@ -151,6 +151,8 @@
         location.pathname.replace(/^\//, '') == this.pathname.replace(/^\//, '') 
         && 
         location.hostname == this.hostname
+        &&
+        $(this).parents('.mobmenu_content').length > 0
       ) {
         // Figure out element to scroll to
         var target = $(this.hash);
@@ -159,6 +161,11 @@
         if (target.length) {
           // Only prevent default if animation is actually gonna happen
           event.preventDefault();
+          event.stopPropagation();
+          $( '.show-nav-left .mobmenu-left-bt').first().click();
+          $( '.show-nav-right .mobmenu-right-bt').first().trigger( 'click' );
+          $( 'html' ).css( 'overflow', '' );
+
           $('html, body').animate({
             scrollTop: target.offset().top
           }, 1000, function() {

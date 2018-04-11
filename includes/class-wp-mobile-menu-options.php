@@ -163,8 +163,9 @@ class WP_Mobile_Menu_options {
 					'1' => '.nav',
 					'2' => '.main-navigation',
 					'3' => '.genesis-nav-menu',
+					'4' => '#main-header',
 				),
-				'default' => array( '1', '2', '3' ),
+				'default' => array( '1', '2', '3', '4' ),
 			) );
 
 			// Hide Html Elements.

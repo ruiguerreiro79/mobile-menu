@@ -23,6 +23,9 @@ if ( in_array( '2', $def_el_arr ) ) {
 if ( in_array( '3', $def_el_arr ) ) {
 	$default_elements .= '.genesis-nav-menu, ';
 }
+if ( in_array( '4', $def_el_arr ) ) {
+	$default_elements .= '#main-header, ';
+}
 $default_elements .= '.hide';
 
 // Check if the Mobile Menu is enable in the plugin options.

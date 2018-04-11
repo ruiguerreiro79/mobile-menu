@@ -110,6 +110,7 @@ Not available at the moment
 * Fix!      - Add specific body classes with jQuery when the theme doesn't implement the body_class()
 * Fix!      - IOS issue when clicking outside the menu papel to close the panel
 * Fix!      - New close button when using the Image Icon
+* Fix!      - Removed Duplicated color pickers in the Font settings fields
 
 = 2.5 =
 * New!      - Naked Header
