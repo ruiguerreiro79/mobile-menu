@@ -29,8 +29,8 @@
   
         });
     
-        if ( jQuery( 'body' ).find( '.mobmenu-push-wrap' ).length <= 0 ) {
-  
+        
+        if ( jQuery( 'body' ).find( '.mobmenu-push-wrap' ).length <= 0 &&  jQuery( 'body' ).hasClass('mob-menu-slideout') ) {
           jQuery( 'body' ).wrapInner( '<div class="mobmenu-push-wrap"></div>' );
           jQuery( '.mobmenu-push-wrap' ).after( jQuery( '.mob-menu-left-panel' ).detach() );
           jQuery( '.mobmenu-push-wrap' ).after( jQuery( '.mob-menu-right-panel' ).detach() );
