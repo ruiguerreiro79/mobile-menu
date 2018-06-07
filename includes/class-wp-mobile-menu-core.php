@@ -298,7 +298,7 @@ class WP_Mobile_Menu_Core {
 					'menu'        => $current_left_menu,
 					'items_wrap'  => '<ul id="mobmenuleft">%3$s</ul>',
 					'fallback_cb' => false,
-					'depth'       => 2,
+					'depth'       => 3,
 					'walker'      => new WP_Mobile_Menu_Walker_Nav_Menu( 'left' ),
 				) );
 
@@ -349,7 +349,7 @@ class WP_Mobile_Menu_Core {
 			'menu'        => $current_right_menu,
 			'items_wrap'  => '<ul id="mobmenuright">%3$s</ul>',
 			'fallback_cb' => false,
-			'depth'       => 2,
+			'depth'       => 3,
 			'walker'      => new WP_Mobile_Menu_Walker_Nav_Menu( 'right' ),
 		) );
 

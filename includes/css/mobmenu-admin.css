@@ -210,19 +210,20 @@
 }
 
 .wp-mobile-menu-notice {
-    background-color: #2a3a4a;
+    background-color: #32cf77;
     color: #fff;
     padding: 10px;
-    border-left-color: #29aecc;
+    border-left-color: #000;
 }
 .wp-mobile-menu-notice a {
-    color:#fff;
+    color:#000;
     padding: 3px 10px;
-    background-color: #29aecc;
+    background-color: #fff;
     text-decoration: none;
+    font-weight: bold;
 }
 .wp-mobile-menu-notice strong {
-    color: #29aecc;
+    color: #3e504b;
     font-size: 16px;
 }
 /* Adjust Titan Framework Select2 Size*/

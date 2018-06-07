@@ -4,7 +4,9 @@
  * Plugin Name: Mobile Menu
  * Plugin URI: http://www.wpmobilemenu.com/
  * Description: An easy to use WordPress responsive mobile menu. Keep your mobile visitors engaged.
- * Version: 2.5.1
+ * Version: 2.6
+ * Tested up to: 4.9
+ * Text Domain: mob-menu-lang
  * Author: Takanakui
  * Author URI: http://www.wpmobilemenu.com/
  * License: GPLv2
@@ -34,7 +36,7 @@ if ( ! class_exists( 'WP_Mobile_Menu' ) ) {
 			<div class="wp-mobile-menu-notice notice notice-success is-dismissible" data-ajax-nonce="<?php echo wp_create_nonce( 'wp-mobile-menu-security-nonce' ); ?>">
 				<span class="dashicons dashicons-warning"></span>
 				<?php
-					_e( '<strong>WP Mobile Menu PRO- </strong>If you need further features like 2000+ Menu Icons, 3rd Level Menus, Header Banner, Menus only visible for logged in users, alternative menus per page, Disable Mobile Menus in specific pages, Check the <a href="' . esc_url( $this->mm_fs()->get_upgrade_url() ) . '"> PRO Version Features</a> and the <a href="http://www.wpmobilemenu.com" target="_blank" >Demo site</a>', 'mob-menu-lang' );
+					_e( 'Do you need extra/advanced features? Check the <strong>PRO</strong> and <strong>PRO ECOMMERCE</strong> versions. See all the advanced features, Header Banner, Ajax Sliding Cart, Alternative menus per page, Menus only visible for logged in users, Disable Mobile Menus in specific pages, 2000+ Menu Icons, Find more about the PRO Features <a href="' . esc_url( $this->mm_fs()->get_upgrade_url() ) . '"> See more ...</a>', 'mob-menu-lang' );
 				?>
 				</div>
 
@@ -71,9 +73,22 @@ if ( ! class_exists( 'WP_Mobile_Menu' ) ) {
 			if ( ! is_admin() ) {
 				$this->load_frontend_assets();
 			}
+
+			// Load Translation Text Domain.
+			add_action( 'plugins_loaded', array( $this, 'mm_load_textdomain' ) );
+
 			// Load Ajax actions.
 			$this->load_ajax_actions();
 
+		}
+
+		/**
+		 * Load Text Domain
+		 *
+		 * @since 2.6
+		 */
+		public function mm_load_textdomain() {
+			load_plugin_textdomain( 'mob-menu-lang', false, basename( dirname( __FILE__ ) ) . '/languages/' );
 		}
 
 		/**
@@ -155,7 +170,7 @@ if ( ! class_exists( 'WP_Mobile_Menu' ) ) {
 			global  $mm_fs ;
 
 			if ( 'toplevel_page_mobile-menu-options' === $hook && ! $mm_fs->is__premium_only() ) {
-				if ( ! get_option( 'wp_mobile_menu_banner_dismissed' ) ) {
+				if ( ! get_option( 'wp_mobile_menu_banner_dismissed2' ) ) {
 					add_action( 'admin_notices', array( $this, 'wp_mobile_menu_custom_admin_notice' ) );
 				}
 				wp_enqueue_style( 'cssmobmenu-admin', plugins_url( 'includes/css/mobmenu-admin.css', __FILE__ ) );

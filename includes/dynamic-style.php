@@ -477,28 +477,22 @@ if ( $titan->getOption( 'enabled' ) ) {
 		/* Adds a transition and the resting translate state */
 		.mob-menu-slideout .mobmenu-push-wrap, .mob-menu-slideout .mob-menu-header-holder {
 			
-			-webkit-transition: all 300ms ease 0;
-			-moz-transition: all 300ms ease 0;
-			-o-transition: all 300ms ease 0;
-			transition: all 300ms ease 0;
-
+			-webkit-transition: -webkit-transform .5s;
+			-moz-transition: -moz-transform .5s;
+			-ms-transition: -ms-transform .5s;
+			-o-transition: -o-transform .5s;
+			transition: transform .5s;
 			-webkit-transform: translate(0, 0);
 			-moz-transform: translate(0, 0);
 			-ms-transform: translate(0, 0);
 			-o-transform: translate(0, 0);
 			transform: translate(0, 0);
-
 			-webkit-transform: translate3d(0, 0, 0);
 			-moz-transform: translate3d(0, 0, 0);
 			-ms-transform: translate3d(0, 0, 0);
 			-o-transform: translate3d(0, 0, 0);
 			transform: translate3d(0, 0, 0);
 
-			-webkit-transition: -webkit-transform .5s;
-			-moz-transition: -moz-transform .5s;
-			-ms-transition: -ms-transform .5s;
-			-o-transition: -o-transform .5s;
-			transition: transform .5s;
 		}
 
 		/* Mobile Menu Frontend CSS Style*/
@@ -779,6 +773,9 @@ if ( $titan->getOption( 'enabled' ) ) {
 		.mob-retina-logo {
 			<?php echo $logo_height; ?>
 		}
+	}
+	.mobmenu-push-wrap {
+		height:100%;
 	}
 
 	</style>

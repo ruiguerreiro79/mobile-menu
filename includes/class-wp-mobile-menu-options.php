@@ -77,23 +77,12 @@ class WP_Mobile_Menu_options {
 				'url'  => 'http://wpmobilemenu.com/documentation-iframe/',
 			) );
 
-			// Enable/Disable WP Mobile Menu.
-			$general_tab->createOption( array(
-				'name'     => __( 'Enable Mobile Menu', 'mob-menu-lang' ),
-				'id'       => 'enabled',
-				'type'     => 'enable',
-				'default'  => true,
-				'desc'     => 'Enable or disable the WP Mobile Menu without deactivate the plugin.',
-				'enabled'  => 'On',
-				'disabled' => 'Off',
-			) );
-
 			// Width trigger.
 			$general_tab->createOption( array(
-				'name'    => __( 'Mobile Menu Visibility(Width Trigger)', 'mob-menu-lang' ),
+				'name'    => __( 'Mobile Menu Visible below this resolution(Width Trigger)', 'mob-menu-lang' ),
 				'id'      => 'width_trigger',
 				'type'    => 'number',
-				'desc'    => __( 'The Mobile menu will appear at this window size. Place it at 5000 to be always visible. ', 'mob-menu-lang' ),
+				'desc'    => __( 'The Mobile menu will appear below this screen resolution. Place it at 5000 to be always visible. ', 'mob-menu-lang' ),
 				'default' => get_option( 'mobmenu_opt_res_trigger', '1024' ),
 				'max'     => '5000',
 				'min'     => '479',
@@ -117,10 +106,11 @@ class WP_Mobile_Menu_options {
 				'id'       => 'enable_left_menu',
 				'type'     => 'enable',
 				'default'  => $enable_left_menu,
-				'desc'     => __( 'Enable or disable the WP Mobile Menu without deactivate the plugin.', 'mob-menu-lang' ),
+				'desc'     => __( 'Enable or disable the Left Menu.', 'mob-menu-lang' ),
 				'enabled'  => 'On',
 				'disabled' => 'Off',
 			) );
+
 			$enable_right_menu = get_option( 'mobmenu_opt_right_menu_enabled' );
 
 			if ( 'false' === $enable_right_menu ) {
@@ -135,7 +125,7 @@ class WP_Mobile_Menu_options {
 				'id'       => 'enable_right_menu',
 				'type'     => 'enable',
 				'default'  => $enable_right_menu,
-				'desc'     => 'Enable or disable the WP Mobile Menu without deactivate the plugin.',
+				'desc'     => 'Enable or disable the Right Menu.',
 				'enabled'  => __( 'On', 'mob-menu-lang' ),
 				'disabled' => __( 'Off', 'mob-menu-lang' ),
 			) );
@@ -151,7 +141,7 @@ class WP_Mobile_Menu_options {
 			) );
 
 			$general_tab->createOption( array(
-				'name' => __( 'Advanced Options', 'mob-menu-lang' ),
+				'name' => __( 'Hide Original Menu/header', 'mob-menu-lang' ),
 				'type' => 'heading',
 			) );
 			$general_tab->createOption( array(
@@ -164,17 +154,28 @@ class WP_Mobile_Menu_options {
 					'2' => '.main-navigation',
 					'3' => '.genesis-nav-menu',
 					'4' => '#main-header',
+					'5' => '#et-top-navigation',
+					'6' => '.site-header',
+					'7' => '.site-branding',
+					'8' => '.ast-mobile-menu-buttons',
+
+
 				),
-				'default' => array( '1', '2', '3', '4' ),
+				'default' => array( '1', '2', '3', '4', '5', '6', '7', '8' ),
 			) );
 
 			// Hide Html Elements.
 			$general_tab->createOption( array(
-				'name'    => 'Hide Elements',
+				'name'    => 'Hide Menu Elements',
 				'id'      => 'hide_elements',
 				'type'    => 'text',
 				'default' => get_option( 'mobmenu_opt_hide_selectors', '.main-navigation' ),
-				'desc'    => '<p>This will hide the desired elements when the Mobile menu is trigerred at the chosen width.</p><p>You can use css class or IDs.</p><p> Example: .menu , #nav</p>',
+				'desc'    => '<p>This will hide the desired elements when the Mobile menu is trigerred at the chosen width. You can use css class or IDs.</p><br>If you need help identifying the correct elements just send us an email to <a href="mailto:support@wpmobilemenu.com">support@wpmobilemenu.com</a> with your site url and a screnshot of the element you want to hide. We reply fast.',
+			) );
+
+			$general_tab->createOption( array(
+				'name' => __( 'Advanced Options', 'mob-menu-lang' ),
+				'type' => 'heading',
 			) );
 
 			// Sticky Html Elements.
