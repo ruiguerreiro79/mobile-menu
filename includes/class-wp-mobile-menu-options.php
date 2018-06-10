@@ -92,6 +92,7 @@ class WP_Mobile_Menu_options {
 				'type' => 'note',
 				'desc' => __( 'The Width trigger field is very important because it determines the width that will show the Mobile Menu. If you want it always visible set it to 5000px', 'mob-menu-lang' ),
 			) );
+
 			$enable_left_menu = get_option( 'mobmenu_opt_left_menu_enabled' );
 
 			if ( 'false' === $enable_left_menu ) {
@@ -144,6 +145,21 @@ class WP_Mobile_Menu_options {
 				'name' => __( 'Hide Original Menu/header', 'mob-menu-lang' ),
 				'type' => 'heading',
 			) );
+
+			$general_tab->createOption( array(
+				'type' => 'note',
+				'desc' => __( 'If you need help identifying the correct elements just send us an email to <a href="mailto:support@wpmobilemenu.com">support@wpmobilemenu.com</a> with your site url and a screenshot of the element you want to hide. We reply fast.', 'mob-menu-lang' ),
+			) );
+
+			// Hide Html Elements.
+			$general_tab->createOption( array(
+				'name'    => 'Hide Menu Elements',
+				'id'      => 'hide_elements',
+				'type'    => 'text',
+				'default' => get_option( 'mobmenu_opt_hide_selectors', '' ),
+				'desc'    => '<p>This will hide the desired elements when the Mobile menu is trigerred at the chosen width. You can use CSS class or IDs.</p><br>Example of an ID and a CSS class: #main-navigation, .site-header',
+			) );
+
 			$general_tab->createOption( array(
 				'name'    => 'Hide elements by default',
 				'id'      => 'default_hided_elements',
@@ -162,15 +178,6 @@ class WP_Mobile_Menu_options {
 
 				),
 				'default' => array( '1', '2', '3', '4', '5', '6', '7', '8' ),
-			) );
-
-			// Hide Html Elements.
-			$general_tab->createOption( array(
-				'name'    => 'Hide Menu Elements',
-				'id'      => 'hide_elements',
-				'type'    => 'text',
-				'default' => get_option( 'mobmenu_opt_hide_selectors', '.main-navigation' ),
-				'desc'    => '<p>This will hide the desired elements when the Mobile menu is trigerred at the chosen width. You can use css class or IDs.</p><br>If you need help identifying the correct elements just send us an email to <a href="mailto:support@wpmobilemenu.com">support@wpmobilemenu.com</a> with your site url and a screnshot of the element you want to hide. We reply fast.',
 			) );
 
 			$general_tab->createOption( array(
@@ -450,6 +457,18 @@ class WP_Mobile_Menu_options {
 				'enabled'  => __( 'Yes', 'mob-menu-lang' ),
 				'disabled' => __( 'No', 'mob-menu-lang' ),
 			) );
+
+			// Click Menu Parent link to open Sub menu(2nd Level).
+			$left_menu_tab->createOption( array(
+				'name'     => __( 'Parent Link open submenu(2nd Level)', 'mob-menu-lang' ),
+				'id'       => 'left_menu_parent_link_submenu_2nd_level',
+				'type'     => 'enable',
+				'default'  => false,
+				'desc'     => __( 'Choose if you want to open the sub-submenu by click in the sub menu item.', 'mob-menu-lang' ),
+				'enabled'  => __( 'Yes', 'mob-menu-lang' ),
+				'disabled' => __( 'No', 'mob-menu-lang' ),
+			) );
+
 			$left_menu_tab->createOption( array(
 				'name' => __( 'Menu Icon', 'mob-menu-lang' ),
 				'type' => 'heading',
@@ -723,6 +742,17 @@ class WP_Mobile_Menu_options {
 				'type'     => 'enable',
 				'default'  => false,
 				'desc'     => __( 'Choose if you want to open the submenu by click in the Parent Menu item.', 'mob-menu-lang' ),
+				'enabled'  => __( 'Yes', 'mob-menu-lang' ),
+				'disabled' => __( 'No', 'mob-menu-lang' ),
+			) );
+
+			// Click Menu Parent link to open Sub menu(2nd Level).
+			$right_menu_tab->createOption( array(
+				'name'     => __( 'Parent Link open submenu(2nd Level)', 'mob-menu-lang' ),
+				'id'       => 'right_menu_parent_link_submenu_2nd_level',
+				'type'     => 'enable',
+				'default'  => false,
+				'desc'     => __( 'Choose if you want to open the sub-submenu by click in the sub menu item.', 'mob-menu-lang' ),
 				'enabled'  => __( 'Yes', 'mob-menu-lang' ),
 				'disabled' => __( 'No', 'mob-menu-lang' ),
 			) );
@@ -1016,26 +1046,6 @@ class WP_Mobile_Menu_options {
 				'default' => get_option( 'mobmenu_opt_header_textcolor', '#222' ),
 			) );
 
-			// Header Text After Left Icon.
-			$colors_tab->createOption( array(
-				'name'    => __( 'Text After Left Icon', 'mob-menu-lang' ),
-				'id'      => 'header_text_after_icon',
-				'type'    => 'color',
-				'desc'    => '',
-				'alpha'   => true,
-				'default' => '#222',
-			) );
-
-			// Header Text Before Right Icon.
-			$colors_tab->createOption( array(
-				'name'    => __( 'Text Before Right Icon', 'mob-menu-lang' ),
-				'id'      => 'header_text_before_icon',
-				'type'    => 'color',
-				'desc'    => '',
-				'alpha'   => true,
-				'default' => '#222',
-			) );
-
 			// Header Left Menu Section.
 			$colors_tab->createOption( array(
 				'name' => __( 'Left Menu Colors', 'mob-menu-lang' ),
@@ -1044,8 +1054,18 @@ class WP_Mobile_Menu_options {
 
 			// Left Menu Icon color.
 			$colors_tab->createOption( array(
-				'name'    => __( 'Left Menu Icon Color', 'mob-menu-lang' ),
+				'name'    => __( 'Icon Color', 'mob-menu-lang' ),
 				'id'      => 'left_menu_icon_color',
+				'type'    => 'color',
+				'desc'    => '',
+				'alpha'   => true,
+				'default' => '#222',
+			) );
+
+			// Header Text After Left Icon.
+			$colors_tab->createOption( array(
+				'name'    => __( 'Text After Left Icon', 'mob-menu-lang' ),
+				'id'      => 'header_text_after_icon',
 				'type'    => 'color',
 				'desc'    => '',
 				'alpha'   => true,
@@ -1130,8 +1150,18 @@ class WP_Mobile_Menu_options {
 
 			// Right Menu Icon color.
 			$colors_tab->createOption( array(
-				'name'    => __( 'Right Menu Icon Color', 'mob-menu-lang' ),
+				'name'    => __( 'Icon Color', 'mob-menu-lang' ),
 				'id'      => 'right_menu_icon_color',
+				'type'    => 'color',
+				'desc'    => '',
+				'alpha'   => true,
+				'default' => '#222',
+			) );
+
+			// Header Text Before Right Icon.
+			$colors_tab->createOption( array(
+				'name'    => __( 'Text Before Right Icon', 'mob-menu-lang' ),
+				'id'      => 'header_text_before_icon',
 				'type'    => 'color',
 				'desc'    => '',
 				'alpha'   => true,

@@ -15,17 +15,19 @@
    (function ($) {
       jQuery( document ).ready( function() {
   
-        jQuery( document ).on( 'click', '.show-nav-right .mobmenu-push-wrap', function ( e ) { 
+        jQuery( document ).on( 'click', '.show-nav-right .mobmenu-push-wrap,  .show-nav-right .mobmenu-overlay', function ( e ) { 
   
           e.preventDefault();
           jQuery( '.mobmenu-right-bt' ).first().trigger( 'click' );
+          e.stopPropagation();
   
         });
           
-        jQuery( document ).on( 'click', '.show-nav-left .mobmenu-push-wrap', function ( e ) { 
+        jQuery( document ).on( 'click', '.show-nav-left .mobmenu-push-wrap,  .show-nav-left .mobmenu-overlay', function ( e ) { 
   
           e.preventDefault();
           jQuery( '.mobmenu-left-bt' ).first().trigger( 'click' );
+          e.stopPropagation();
   
         });
     
@@ -48,21 +50,29 @@
           }
   
           jQuery( '#wpadminbar' ).appendTo( 'body' );
-  
+
           jQuery( 'video' ).each( function(){
             if( 'autoplay' === jQuery( this ).attr('autoplay') ) {
               jQuery( this )[0].play();
-            } 
+            }
           });
   
   
-        }      
-      
+        }
+
         jQuery( document ).on( 'click',  '.mobmenu-left-bt, .mob-menu-left-panel .mobmenu_content a, .show-nav-left .mob-cancel-button' , function ( e ) {  
-              
+
+          // Parent Link open submenu(1st Level).
           if ( jQuery(this).parent().parent().parent().parent().hasClass( 'mobmenu-parent-link' ) || jQuery(this).parent().parent().parent().parent().parent().hasClass( 'mobmenu-parent-link' ) ) {
             if( 'mobmenuleft' ===  jQuery(this).parent().parent().attr('id') && jQuery(this).parent().find( '.mob-expand-submenu' ).length > 0 )  { 
               jQuery(this).parent().find( '.mob-expand-submenu' ).first().trigger( 'click' );
+              return false;
+            }
+          }
+          // Parent Link open submenu(2nd Level).
+          if ( $(this).parent().parent().parent().parent().parent().parent().parent().hasClass( 'mobmenu-parent-link-2nd-level' )  ) {
+            if( 'mobmenuleft' ===  $(this).parent().parent().parent().parent().attr('id') && $(this).parent().find( '.mob-expand-submenu' ).length > 0 )  { 
+              $(this).parent().find( '.mob-expand-submenu' ).first().trigger( 'click' );
               return false;
             }
           }
@@ -88,6 +98,14 @@
           if ( jQuery(this).parent().parent().parent().parent().hasClass( 'mobmenu-parent-link' ) || jQuery(this).parent().parent().parent().parent().parent().hasClass( 'mobmenu-parent-link' ) ) {
             if( 'mobmenuright' ===  jQuery(this).parent().parent().attr('id') && jQuery(this).parent().find( '.mob-expand-submenu' ).length > 0 )  { 
               jQuery(this).parent().find( '.mob-expand-submenu' ).first().trigger( 'click' );
+              return false;
+            }
+          }
+
+          // Parent Link open submenu(2nd Level).
+          if ( $(this).parent().parent().parent().parent().parent().parent().parent().hasClass( 'mobmenu-parent-link-2nd-level' )  ) {
+            if( 'mobmenuright' ===  $(this).parent().parent().parent().parent().attr('id') && $(this).parent().find( '.mob-expand-submenu' ).length > 0 )  { 
+              $(this).parent().find( '.mob-expand-submenu' ).first().trigger( 'click' );
               return false;
             }
           }

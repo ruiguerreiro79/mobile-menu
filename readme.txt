@@ -1,10 +1,10 @@
 === WP Mobile Menu ===
 Contributors: takanakui, freemius
 link: http://profiles.wordpress.org/takanakui
-Tags:   mobile, navigation, responsive, menu,  responsive menu, mobile menu,  tablet menu, hamburger menu, hamburger, wordpress responsive menu, wordpress mobile menu
+Tags:   mobile, navigation, responsive, menu,  responsive menu, mobile menu,  tablet menu, hamburger menu, hamburger, wordpress responsive menu, wordpress mobile menu, canvas menu
 Requires at least: 4.0
 Tested up to: 4.9
-Stable tag: 2.5.1
+Stable tag: 2.6
 Requires PHP: 5.2.4
 License: GPLv3
 License URI: http://www.gnu.org/licenses/gpl-3.0.html
@@ -12,71 +12,62 @@ Donate link: http://www.wpmobilemenu.com
 
 
 == Description == 
+Need some help with the mobile website experience? Need an Mobile Menu plugin that keep your mobile visitors engaged?
 
-WP Mobile Menu is an easy to use WordPress responsive mobile menu. Keep your mobile visitors engaged, providing then easy access to your site content using any device smartphone/tablet/desktop. Don't lose visitors because they can't click in your current menu items when displayed in a mobile/tablet device.  It's possible to have two Responsive Mobile Menus per page, including an fixed header where you can place your logo/brand or just a simple hamburguer menu. 
+WP Mobile Menu is the best WordPress responsive mobile menu. Provide to your mobile visitor an easy access to your site content using any device smartphone/tablet/desktop.
 
-The Menus will be displayed at a resolution defined by you, and there are some options to hide the current theme menus. It's easy to add custom content to the left or right menu panel, just drag and drop your content to the specific left/right panel widgets.
+Se below the lisf of features of what our WordPress Responsive Menu can do for you.
 
-No coding knowledge is required.
+No coding knowledge is required. Works with all WordPress responsive themes.
 
-DEMO: <a target="_blank" href="http://www.wpmobilemenu.com/">http://www.wpmobilemenu.com</a>
+= Links =
 
+* [Free Demo](https://demo.wpmobilemenu.com)
+* [Ecommerce Demo](https://shopdemo.wpmobilemenu.com/)
+* [Professional Demo](https://prodemo.wpmobilemenu.com/)
+* [Website](https://www.wpmobilemenu.com)
+* [Documentation](https://www.wpmobilemenu.com/knowledgebase/)
 
-###Features:
+###This are the features that will keep your mobile visitors engaged
 
 <ul>
-<li> *New - Naked Header </li>
-<li> *New - Display Type, Slideout over content </li>
-<li> *New - Click Entire parent link to open submenu </li>
-<li> *New - Overlay Mask when the menu is opened  </li>
-<li> *New - Font and color settings to the before and after menu icon text </li>
-<li> *New - Custom js field to help in any tweak or fast fix  </li>
-<li> *New - Turn on/off Header Logo </li>
-<li> *New - Menu Background size settings  </li>
-<li> *New - New Menu padding( for Left and Right Menu ) </li>
-<li> 2 Menus, left and right </li>
+<li> 3 Depth Menu Level</li>
+<li> Naked Header </li>
+<li> Overlay Mask when the menu is opened  </li>
 <li> Logo/Text Branding  </li>
 <li> Background image for the menus  </li>
 <li> Naked Header  </li>
-<li> Set the screen width that will trigger the Mobile Menu  </li>
 <li> Hide specific elements when the Mobile Menu is visible(theme menus, or any html element)  </li>
 <li> Google Fonts  </li>
-<li> CSS3 Transitions  </li>
 <li> Customise the styling of your mobile menus  </li>
-<li> Builds upon the standard WordPress menus system  </li>
-<li> Display WordPress Widgets in your menu  </li>
-<li> Customise the styling of your mobile menus </li>
-<li> and much more, install and see it for yourself </li>
+<li> Display Type - Slideout Over Content, Slideout Push Content</li>
+<li> [Premium]  Display Type - Overlay Full Width, Slideout From Top</li>
+<li> [Premium]  Menus only visible for logged in users</li>
+<li> [Premium]  2000+ Icons (FontAwesome, Fontelicon, Iconic, Entypo, Typicons)</li>
+<li> [Premium]  Header Banner(above and below the header)</li>
+<li> [Premium]  Disable Mobile Menus in specific pages</li>
+<li> [Premium]  Alternative menus per page</li>
+<li> [Premium]  5th Depth Menu Levels</li>
+<li> [Premium]  Copyright section</li>
+<li> and much more...</li>
+</ul>
+###Increase your Woocommerce shop website sales conversion 
+<ul>
+<li> [Premium ECOMMERCE]  Menu Cart Icon</li>
+<li> [Premium ECOMMERCE]  Sliding Cart</li>
+<li> [Premium ECOMMERCE]  Checkout and View Cart buttons in Sliding Cart</li>
+<li> [Premium ECOMMERCE]  Account links in Sliding Cart</li>
+<li> [Premium ECOMMERCE]  Mobile Product Filter</li>
 </ul>
 
-WP Mobile Menu it's very easy to use
+> Note: some of the features are Premium. To have access to those features you will need WP Mobile Menu Premium. You can [get WP Mobile Menu Premium here](https://www.wpmobilemenu.com)!
 
-* Great Support, just check it yourself.
-
+###I need help or I have a doubt, check our Support
+* Great Support, our free support is above the average. Only the Premium support is better and faster.
 
  <a target="_blank" href="https://wordpress.org/support/plugin/mobile-menu">WP Mobile Menu Support page</a>
 
-###PRO Features:
-
-<ul>
-<li> Menu Item Icons </li>
-<li> 2000+ Icons (FontAwesome, Fontelicon, Iconic, Entypo, Typicons)  </li>
-<li> Header Banner(above and below the header)  </li>
-<li> Naked Header  </li>
-<li> 3rd Depth Menu Levels  </li>
-<li> Menus only visible for logged in users </li>
-<li> Disable Mobile Menus in specific pages  </li>
-<li> Alternative menus per page </li>
-<li> Retina Logo  </li>
-<li> Use the page title for the header text  </li>
-<li> Copyright section </li>
-<li> Overlay Menu Display </li>
-<li> 1 Year of Pro Support </li>
-<li> 1 Year of Updates</li>
-</ul>
-
-
-<a target="_blank" href="http://www.wpmobilemenu.com/pricing">More info about the Pro version</a>
+Bug reports for WP Mobile Menu are [welcomed on GitHub](https://github.com/ruiguerreiro79/mobile-menu). Please note GitHub is not a support forum, and issues that aren’t properly qualified as bugs will be closed.
 
 == Installation ==
 
@@ -101,6 +92,24 @@ Not available at the moment
 Not available at the moment
  
 == Changelog ==  
+
+= 2.6 =
+* New!      - 3rd Depth Menu Levels
+* New!      - Parent Link open submenu(2nd Level)
+* New!      - Translation Text Domain
+* New!      - GPDR Ready
+* New!      - New selector to hide the menus from Astra theme, Divi theme
+* New!      - Polylang language URL compatibility
+* Fix!      - Admin notice color changes
+* Fix!      - Warning message when no menu is selected
+* Fix!      - Warning message when no menu is selected
+* Fix!      - Detach elements only with Push Content Effect
+* Fix!      - Freemius Titan Colorpicker
+* Fix!      - Fix Smooth scroll conflicts
+* Fix!      - Remove Color Picker from the Font field
+* Fix!      - Width Trigger was with 1px of offset
+* Improved! - Freemius SDK Update
+* Improved! - Removed unnecessary Enable button
 
 = 2.5.1 =
 * New!      - New close button when using the Slideout Over content menu display type

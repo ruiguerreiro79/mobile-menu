@@ -18,7 +18,7 @@ class WP_Mobile_Menu_Core {
 				$titan = TitanFramework::getInstance( 'mobmenu' );
 				$display_type = $titan->getOption( 'menu_display_type' );
 
-				if ( 'slideout-over' === $display_type ) {
+				if ( 'slideout-over' === $display_type || '' === $display_type ) {
 					$menu_display_type = 'mob-menu-slideout-over';
 				} else {
 					$menu_display_type = 'mob-menu-slideout';
@@ -119,11 +119,13 @@ class WP_Mobile_Menu_Core {
 		$right_logged_in_user = false;
 		$titan = TitanFramework::getInstance( 'mobmenu' );
 		$menu_display_type = 'mob-menu-slideout';
-		$output = '';
+		$mobmenu_parent_link           = '';
+		$mobmenu_parent_link_2nd_level = '';
+			$output = '';
 		$output .= '<div class="mobmenu-overlay"></div>';
 
 		// Check if Header Menu Toolbar is enabled.
-		if ( $titan->getOption( 'enabled' ) && ! $this->is_page_menu_disabled() ) {
+		if ( ! $this->is_page_menu_disabled() ) {
 			$header_text = $titan->getOption( 'header_text' );
 			if ( '' === $header_text ) {
 				$header_text = get_bloginfo();
@@ -136,7 +138,7 @@ class WP_Mobile_Menu_Core {
 
 			$display_type = $titan->getOption( 'menu_display_type' );
 
-			if ( 'slideout-over' === $display_type ) {
+			if ( 'slideout-over' === $display_type || '' === $display_type ) {
 				$menu_display_type =' data-menu-display="mob-menu-slideout-over" ';
 			} else {
 				$menu_display_type = ' data-menu-display="mob-menu-slideout" ';
@@ -196,7 +198,11 @@ class WP_Mobile_Menu_Core {
 			} else {
 
 				if ( '' === $titan->getOption( 'logo_url' ) ) {
-					$logo_url = get_bloginfo( 'url' );
+					if ( function_exists( 'pll_home_url' ) ) {
+						$logo_url = pll_home_url();
+					} else {
+						$logo_url = get_bloginfo( 'url' );
+					}
 				} else {
 					$logo_url = $titan->getOption( 'logo_url' );
 				}
@@ -214,7 +220,7 @@ class WP_Mobile_Menu_Core {
 			}
 
 			$header_text = '<span>' . $header_text . '</span>';
-			
+
 			if ( $header_branding ) {
 				switch ( $header_branding ) {
 					case 'logo':
@@ -271,13 +277,15 @@ class WP_Mobile_Menu_Core {
 			echo $output;
 
 			if ( $titan->getOption( 'enable_left_menu' ) && ! $left_logged_in_user ) {
-				$mobmenu_parent_link = '';
 				if ( $titan->getOption( 'left_menu_parent_link_submenu' ) ) {
 					$mobmenu_parent_link = 'mobmenu-parent-link';
 				}
+				if ( $titan->getOption( 'left_menu_parent_link_submenu_2nd_level' ) ) {
+					$mobmenu_parent_link_2nd_level = 'mobmenu-parent-link-2nd-level';
+				}
 				?>
 
-				<div class="mob-menu-left-panel mobmenu <?php echo $mobmenu_parent_link; ?> ">
+				<div class="mob-menu-left-panel mobmenu <?php echo $mobmenu_parent_link; ?> <?php echo $mobmenu_parent_link_2nd_level; ?>">
 					<a href="#" class="mobmenu-left-bt"><i class="mob-icon-cancel mob-cancel-button"></i></a>
 					<div class="mobmenu_content">
 				<?php
@@ -292,15 +300,23 @@ class WP_Mobile_Menu_Core {
 
 				// Grab the current left menu.
 				$current_left_menu = $titan->getOption( 'left_menu' );
+				if ( '0' === $current_left_menu ){
+					$current_left_menu = '';
+				}
 
-				// Display the left menu.
-				wp_nav_menu( array(
-					'menu'        => $current_left_menu,
-					'items_wrap'  => '<ul id="mobmenuleft">%3$s</ul>',
-					'fallback_cb' => false,
-					'depth'       => 3,
-					'walker'      => new WP_Mobile_Menu_Walker_Nav_Menu( 'left' ),
-				) );
+				// Only build the menu it there is a menu assigned to it.
+				if ( '' !== $current_left_menu ) {
+					// Display the left menu.
+					wp_nav_menu( array(
+						'menu'        => $current_left_menu,
+						'items_wrap'  => '<ul id="mobmenuleft">%3$s</ul>',
+						'fallback_cb' => false,
+						'depth'       => 3,
+						'walker'      => new WP_Mobile_Menu_Walker_Nav_Menu( 'left' ),
+					) );
+				}else {
+					echo "<span class='no-menu-assigned'>Assign a menu in the Left Menu options.</span>";
+				}
 
 				// Check if the Left Menu Bottom Widget has any content.
 				if ( is_active_sidebar( 'mobmleftbottom' ) ) {
@@ -316,16 +332,20 @@ class WP_Mobile_Menu_Core {
 				</div><div class="mob-menu-left-bg-holder"></div></div>
 
 			<?php
-			}
+			} 
 
 			if ( $titan->getOption( 'enable_right_menu' ) && ! $right_logged_in_user ) {
 				$mobmenu_parent_link = '';
 				if ( $titan->getOption( 'right_menu_parent_link_submenu' ) ) {
 					$mobmenu_parent_link = 'mobmenu-parent-link';
 				}
+
+				if ( $titan->getOption( 'right_menu_parent_link_submenu_2nd_level' ) ) {
+					$mobmenu_parent_link_2nd_level = 'mobmenu-parent-link-2nd-level';
+				}
 				?>
 				<!--  Right Panel Structure -->
-				<div class="mob-menu-right-panel mobmenu <?php echo $mobmenu_parent_link; ?> ">
+				<div class="mob-menu-right-panel mobmenu <?php echo $mobmenu_parent_link; ?> <?php echo $mobmenu_parent_link_2nd_level; ?>">
 					<a href="#" class="mobmenu-right-bt"><i class="mob-icon-cancel mob-cancel-button"></i></a>
 					<div class="mobmenu_content">
 					
@@ -344,14 +364,20 @@ class WP_Mobile_Menu_Core {
 		// Grab the select menu.
 		$current_right_menu = $titan->getOption( 'right_menu' );
 
+		// Only build the menu it there is a menu assigned to it.
+		if ( '' !== $current_right_menu ) {
+
 		// Display the right menu.
-		wp_nav_menu( array(
-			'menu'        => $current_right_menu,
-			'items_wrap'  => '<ul id="mobmenuright">%3$s</ul>',
-			'fallback_cb' => false,
-			'depth'       => 3,
-			'walker'      => new WP_Mobile_Menu_Walker_Nav_Menu( 'right' ),
-		) );
+			wp_nav_menu( array(
+				'menu'        => $current_right_menu,
+				'items_wrap'  => '<ul id="mobmenuright">%3$s</ul>',
+				'fallback_cb' => false,
+				'depth'       => 3,
+				'walker'      => new WP_Mobile_Menu_Walker_Nav_Menu( 'right' ),
+			) );
+		} else {
+			echo "<span class='no-menu-assigned'>Assign a menu in the Right Menu options.</span>";
+		}
 
 		// Check if the Right Menu Bottom Widget has any content.
 		if ( is_active_sidebar( 'mobmrightbottom' ) ) {
@@ -437,7 +463,7 @@ class WP_Mobile_Menu_Core {
 		$titan = TitanFramework::getInstance( 'mobmenu' );
 
 		// Premium options.
-		if ( $mm_fs->is__premium_only() && $titan->getOption( 'enabled' ) ) {
+		if ( $mm_fs->is__premium_only() ) {
 			$current_id = 0;
 			if ( isset( $wp_query->post ) ) {
 				$current_id = $wp_query->post->ID;
@@ -449,12 +475,7 @@ class WP_Mobile_Menu_Core {
 				return in_array( $current_id, $titan->getOption( 'disable_menu_pages' ) );
 			}
 		} else {
-
-			if ( $titan->getOption( 'enabled' ) ) {
 				return false;
-			} else {
-				return true;
-			}
 		}
 
 	}

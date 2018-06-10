@@ -2,13 +2,13 @@
 
 /**
  * Plugin Name: Mobile Menu
- * Plugin URI: http://www.wpmobilemenu.com/
+ * Plugin URI: https://www.wpmobilemenu.com/
  * Description: An easy to use WordPress responsive mobile menu. Keep your mobile visitors engaged.
  * Version: 2.6
  * Tested up to: 4.9
  * Text Domain: mob-menu-lang
  * Author: Takanakui
- * Author URI: http://www.wpmobilemenu.com/
+ * Author URI: https://www.wpmobilemenu.com/
  * License: GPLv2
  */
 
@@ -36,7 +36,7 @@ if ( ! class_exists( 'WP_Mobile_Menu' ) ) {
 			<div class="wp-mobile-menu-notice notice notice-success is-dismissible" data-ajax-nonce="<?php echo wp_create_nonce( 'wp-mobile-menu-security-nonce' ); ?>">
 				<span class="dashicons dashicons-warning"></span>
 				<?php
-					_e( 'Do you need extra/advanced features? Check the <strong>PRO</strong> and <strong>PRO ECOMMERCE</strong> versions. See all the advanced features, Header Banner, Ajax Sliding Cart, Alternative menus per page, Menus only visible for logged in users, Disable Mobile Menus in specific pages, 2000+ Menu Icons, Find more about the PRO Features <a href="' . esc_url( $this->mm_fs()->get_upgrade_url() ) . '"> See more ...</a>', 'mob-menu-lang' );
+					_e( 'Do you need extra/advanced features? Check the <strong>PRO</strong> and <strong>PRO ECOMMERCE</strong> versions. See all the advanced features, Header Banner, Ajax Sliding Cart, Alternative menus per page, Menus only visible for logged in users, Disable Mobile Menus in specific pages, 2000+ Menu Icons, Find more about the PRO Features <a href="' . esc_url( $this->mm_fs()->get_upgrade_url() ) . '"> Start Free Trial</a>', 'mob-menu-lang' );
 				?>
 				</div>
 
@@ -187,5 +187,6 @@ if ( ! class_exists( 'WP_Mobile_Menu' ) ) {
 
 	}
 }
+
 // Instanciate the WP_Mobile_Menu.
 new WP_Mobile_Menu();

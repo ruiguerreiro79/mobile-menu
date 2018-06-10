@@ -81,5 +81,23 @@ Version 2.5.1
     - Fix! - New close button when using the Image Icon
     - Fix! - Removed Duplicated color pickers in the Font settings fields
 
+Version 2.6
+
+    - New! - 3rd Depth Menu Levels 
+    - New! - Parent Link open submenu(2nd Level)
+    - New! - Translation Text Domain
+    - New! - GPDR Ready
+    - New! - New selector to hide the menus from Astra theme, Divi theme
+    - New! - Polylang language URL compatibility
+    - Fix! - Admin notice color changes
+    - Fix! - Warning message when no menu is selected
+    - Fix! - Detach elements only with Push Content Effect
+    - Fix! - Freemius SDK Update
+    - Fix! - Freemius Titan Colorpicker
+    - Fix! - Fix Smooth scroll conflicts
+    - Fix! - Remove Color Picker from the Font field
+    - Fix! - Width Trigger was with 1px of offset
+    - Fix! - Removed unnecessary Enable button
+
 -----------------------------------------------------------
 

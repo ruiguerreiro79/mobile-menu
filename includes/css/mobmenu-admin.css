@@ -210,20 +210,20 @@
 }
 
 .wp-mobile-menu-notice {
-    background-color: #32cf77;
+    background-color: #f3c030;
     color: #fff;
     padding: 10px;
-    border-left-color: #000;
+    border-left-color: #36373c;
 }
 .wp-mobile-menu-notice a {
-    color:#000;
+    color:#36373c;
     padding: 3px 10px;
     background-color: #fff;
     text-decoration: none;
     font-weight: bold;
 }
 .wp-mobile-menu-notice strong {
-    color: #3e504b;
+    color: #36373c;
     font-size: 16px;
 }
 /* Adjust Titan Framework Select2 Size*/
@@ -235,4 +235,7 @@ td.second.tf-select .select2 {
 }
 .tf-font .wp-picker-container {
     display: none;
+}
+#fs_connect .fs-visual .fs-plugin-icon, #fs_connect .fs-visual .fs-connect-logo, #fs_connect .fs-visual .fs-site-icon {
+    border: none!important;
 }
