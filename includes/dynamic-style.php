@@ -295,7 +295,7 @@ $logo_height = 'height:' . $logo_height . 'px;';
 		display: block;
 	}
 
-	.mobmenu-push-wrap {
+	.mobmenu-push-wrap, body.mob-menu-slideout-over {
 		padding-top: <?php echo $wrap_padding_top; ?>px;
 	}
 	<?php
