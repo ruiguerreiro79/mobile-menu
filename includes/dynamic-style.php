@@ -645,11 +645,9 @@ $logo_height = 'height:' . $logo_height . 'px;';
 	
 	.mobmenu_content li a {
 		display: block;
-		font-family: "Open Sans";
 		letter-spacing: 1px;
 		padding: 10px 20px;
 		text-decoration: none;
-		font-size: 14px;
 	}
 
 	.mobmenu_content li {
