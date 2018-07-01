@@ -76,7 +76,7 @@ if ( $titan->getOption( 'logo_height' ) > 0 ) {
 } else {
 	$logo_height = $titan->getOption( 'header_height' );
 }
-$logo_height = 'height:' . $logo_height . 'px;';
+$logo_height = 'height:' . $logo_height . 'px!important;';
 
 ?>
 
