@@ -92,8 +92,8 @@ class WP_Mobile_Menu_Core {
 
 		if ( 'yes' === $full_content ) {
 			$output = '<div class="mobmenu-icons-overlay"></div><div class="mobmenu-icons-content" data-menu-id="' . $menu_id . '" data-menu-item-id="' . $menu_item_id . '">';
-			$output .= '<div id="mobmenu-modal-header"><h2>' . $menu_title . ' - Menu Item Icon</h2><div class="mobmenu-icons-close-overlay"><span class="mobmenu-item mobmenu-close-overlay mob-icon-cancel-7"></span></div>';
-			$output .= '<div class="mobmenu-icons-search"><input type="text" name="mobmenu_search_icons" id="mobmenu_search_icons" value="" placeholder="Search"><span class="mobmenu-item mob-icon-search-7"></span></div>';
+			$output .= '<div id="mobmenu-modal-header"><h2>' . $menu_title . ' - Menu Item Icon</h2><div class="mobmenu-icons-close-overlay"><span class="mobmenu-item mobmenu-close-overlay mob-icon-cancel-circle"></span></div>';
+			$output .= '<div class="mobmenu-icons-search"><input type="text" name="mobmenu_search_icons" id="mobmenu_search_icons" value="" placeholder="Search"><span class="mobmenu-item mob-icon-search-circle"></span></div>';
 			$output .= '<div class="mobmenu-icons-remove-selected">' . __( 'Remove Icon Selection', 'mob-menu-lang' ) . '</div>';
 			$output .= '</div><div id="mobmenu-modal-body"><div class="mobmenu-icons-holder" ' . $selected . '>';
 
@@ -489,11 +489,30 @@ class WP_Mobile_Menu_Core {
 			'menu-1',
 			'menu-outline',
 			'plus',
+			'plus-outline',
+			'plus-1',
+			'user',
 			'user-1',
+			'star',
 			'star-1',
+			'star-empty',
+			'ok',
 			'ok-1',
-			'ok-circled',
-			'ok-circled2',
+			'cancel',
+			'cancel-circled',
+			'cancel-circled2',
+			'cancel-circle',
+			'cancel-1',
+			'vimeo',
+			'twitter',
+			'facebook-squared',
+			'gplus',
+			'pinterest',
+			'tumblr',
+			'linkedin',
+			'instagram',
+
+
 		);
 		return $icons_base;
 	}

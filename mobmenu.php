@@ -170,7 +170,7 @@ if ( ! class_exists( 'WP_Mobile_Menu' ) ) {
 			global  $mm_fs ;
 
 			if ( 'toplevel_page_mobile-menu-options' === $hook && ! $mm_fs->is__premium_only() ) {
-				if ( ! get_option( 'wp_mobile_menu_banner_dismissed2' ) ) {
+				if ( ! get_option( 'wp_mobile_menu_banner_dismissed' ) ) {
 					add_action( 'admin_notices', array( $this, 'wp_mobile_menu_custom_admin_notice' ) );
 				}
 				wp_enqueue_style( 'cssmobmenu-admin', plugins_url( 'includes/css/mobmenu-admin.css', __FILE__ ) );
