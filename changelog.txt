@@ -98,6 +98,9 @@ Version 2.6
     - Fix! - Remove Color Picker from the Font field
     - Fix! - Width Trigger was with 1px of offset
     - Fix! - Removed unnecessary Enable button
+    - Fix! - Alpha Color Picker
+    - Fix! - Dismissable Banner
+
 
 -----------------------------------------------------------
 

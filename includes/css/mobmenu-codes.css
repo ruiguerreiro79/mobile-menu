@@ -17,6 +17,8 @@
 .icon-cancel-circled:before { content: '\e80f'; } /* '' */
 .icon-cancel-1:before { content: '\e810'; } /* '' */
 .icon-cancel-circle:before { content: '\e811'; } /* '' */
+.icon-down-open-big:before { content: '\e812'; } /* '' */
+.icon-up-open-big:before { content: '\e813'; } /* '' */
 .icon-menu:before { content: '\f008'; } /* '' */
 .icon-menu-3:before { content: '\f0c9'; } /* '' */
 .icon-vimeo:before { content: '\f306'; } /* '' */

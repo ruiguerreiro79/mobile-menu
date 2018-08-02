@@ -42,8 +42,12 @@
   -moz-osx-font-smoothing: grayscale;
  
 }
-
-.mob-icon-cancel:before { content: '\e80d'; } /* '' */
+.mob-icon-down-open:before { content: '\e812'; } /* '' */
+.mob-icon-up-open:before { content: '\e813'; } /* '' */
+.mob-icon-cancel:before {     
+  content: '\e803';
+  transform: rotate(45deg);
+} /* '' */
 .mob-icon-cancel-circled2:before { content: '\e80e'; } /* '' */
 .mob-icon-cancel-circled:before { content: '\e80f'; } /* '' */
 .mob-icon-cancel-1:before { content: '\e810'; } /* '' */
