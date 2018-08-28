@@ -4,11 +4,13 @@
  * Plugin Name: Mobile Menu
  * Plugin URI: https://www.wpmobilemenu.com/
  * Description: An easy to use WordPress responsive mobile menu. Keep your mobile visitors engaged.
- * Version: 2.6
- * Tested up to: 4.9
- * Text Domain: mob-menu-lang
  * Author: Takanakui
+ * Version: 2.6.1
  * Author URI: https://www.wpmobilemenu.com/
+ * Tested up to: 4.9
+ * Text Domain: mobile-menu
+ * Domain Path: /languages/
+ * GitHub Plugin URI: https://github.com/ruiguerreiro79/mobile-menu
  * License: GPLv2
  */
 
@@ -36,7 +38,7 @@ if ( ! class_exists( 'WP_Mobile_Menu' ) ) {
 			<div class="wp-mobile-menu-notice notice notice-success is-dismissible" data-ajax-nonce="<?php echo wp_create_nonce( 'wp-mobile-menu-security-nonce' ); ?>">
 				<span class="dashicons dashicons-warning"></span>
 				<?php
-					_e( 'Do you need extra/advanced features? Check the <strong>Professional</strong> and <strong>Business</strong> versions. See all the advanced features, Header Banner, Ajax Sliding Cart, Alternative menus per page, Menus only visible for logged in users, Disable Mobile Menus in specific pages, 2000+ Menu Icons, Find more about the PRO Features <a href="' . esc_url( $this->mm_fs()->get_upgrade_url() ) . '"> Know more ...</a>', 'mob-menu-lang' );
+					_e( 'Do you need extra/advanced features? Check the <strong>Professional</strong> and <strong>Business</strong> versions. See all the advanced features, Header Banner, Ajax Sliding Cart, Alternative menus per page, Menus only visible for logged in users, Disable Mobile Menus in specific pages, 2000+ Menu Icons, Find more about the PRO Features <a href="' . esc_url( $this->mm_fs()->get_upgrade_url() ) . '"> Know more ...</a>', 'mobile-menu' );
 				?>
 				</div>
 
@@ -88,7 +90,7 @@ if ( ! class_exists( 'WP_Mobile_Menu' ) ) {
 		 * @since 2.6
 		 */
 		public function mm_load_textdomain() {
-			load_plugin_textdomain( 'mob-menu-lang', false, basename( dirname( __FILE__ ) ) . '/languages/' );
+			load_plugin_textdomain( 'mobile-menu', false, basename( dirname( __FILE__ ) ) . '/languages/' );
 		}
 
 		/**

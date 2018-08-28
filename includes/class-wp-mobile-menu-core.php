@@ -94,7 +94,7 @@ class WP_Mobile_Menu_Core {
 			$output = '<div class="mobmenu-icons-overlay"></div><div class="mobmenu-icons-content" data-menu-id="' . $menu_id . '" data-menu-item-id="' . $menu_item_id . '">';
 			$output .= '<div id="mobmenu-modal-header"><h2>' . $menu_title . ' - Menu Item Icon</h2><div class="mobmenu-icons-close-overlay"><span class="mobmenu-item mobmenu-close-overlay mob-icon-cancel-circle"></span></div>';
 			$output .= '<div class="mobmenu-icons-search"><input type="text" name="mobmenu_search_icons" id="mobmenu_search_icons" value="" placeholder="Search"><span class="mobmenu-item mob-icon-search-circle"></span></div>';
-			$output .= '<div class="mobmenu-icons-remove-selected">' . __( 'Remove Icon Selection', 'mob-menu-lang' ) . '</div>';
+			$output .= '<div class="mobmenu-icons-remove-selected">' . __( 'Remove Icon Selection', 'mobile-menu' ) . '</div>';
 			$output .= '</div><div id="mobmenu-modal-body"><div class="mobmenu-icons-holder" ' . $selected . '>';
 
 			// Loop through all the icons to create the icons list.
@@ -156,7 +156,7 @@ class WP_Mobile_Menu_Core {
 				}
 
 				if ( $titan->getOption( 'left_menu_icon_action' ) ) {
-					$output .= '<div  class="mobmenul-container"><a href="#" class="mobmenu-left-bt" alt="' . __( 'Left Menu Button', 'mob-menu-lang' ) . '">';
+					$output .= '<div  class="mobmenul-container"><a href="#" class="mobmenu-left-bt" alt="' . __( 'Left Menu Button', 'mobile-menu' ) . '">';
 				} else {
 
 					if ( $titan->getOption( 'left_icon_url_target' ) ) {
@@ -174,7 +174,7 @@ class WP_Mobile_Menu_Core {
 				if ( ! $titan->getOption( 'left_menu_icon_opt' ) || '' === $left_icon_image ) {
 					$output .= '<i class="mob-icon-' . $titan->getOption( 'left_menu_icon_font' ) . ' mob-menu-icon"></i><i class="mob-icon-cancel mob-cancel-button"></i>';
 				} else {
-					$output .= '<img src="' . $left_icon_image . '" alt="' . __( 'Left Menu Icon', 'mob-menu-lang' ) . '"><i class="mob-icon-cancel mob-cancel-button"></i>';
+					$output .= '<img src="' . $left_icon_image . '" alt="' . __( 'Left Menu Icon', 'mobile-menu' ) . '"><i class="mob-icon-cancel mob-cancel-button"></i>';
 				}
 
 				$output .= $left_menu_text;
@@ -216,7 +216,7 @@ class WP_Mobile_Menu_Core {
 			$logo_output = '';
 
 			if ( ('logo' === $header_branding || 'logo-text' === $header_branding || 'text-logo' === $header_branding) && '' !== $logo_img ) {
-				$logo_output = '<img class="mob-standard-logo" src="' . $logo_img . '"  alt=" ' . __( 'Logo Header Menu', 'mob-menu-lang' ) . '">';
+				$logo_output = '<img class="mob-standard-logo" src="' . $logo_img . '"  alt=" ' . __( 'Logo Header Menu', 'mobile-menu' ) . '">';
 			}
 
 			$header_text = '<span>' . $header_text . '</span>';
@@ -248,7 +248,7 @@ class WP_Mobile_Menu_Core {
 				}
 
 				if ( $titan->getOption( 'right_menu_icon_action' ) ) {
-					$output .= '<div  class="mobmenur-container"><a href="#" class="mobmenu-right-bt" alt="' . __( 'Right Menu Button', 'mob-menu-lang' ) . '">';
+					$output .= '<div  class="mobmenur-container"><a href="#" class="mobmenu-right-bt" alt="' . __( 'Right Menu Button', 'mobile-menu' ) . '">';
 				} else {
 
 					if ( $titan->getOption( 'right_icon_url_target' ) ) {
@@ -266,7 +266,7 @@ class WP_Mobile_Menu_Core {
 				if ( ! $titan->getOption( 'right_menu_icon_opt' ) || '' === $right_icon_image ) {
 					$output .= '<i class="mob-icon-' . $titan->getOption( 'right_menu_icon_font' ) . ' mob-menu-icon"></i><i class="mob-icon-cancel mob-cancel-button"></i>';
 				} else {
-					$output .= '<img src="' . $right_icon_image . '" alt="' . __( 'Right Menu Icon', 'mob-menu-lang' ) . '"><i class="mob-icon-cancel mob-cancel-button"></i>';
+					$output .= '<img src="' . $right_icon_image . '" alt="' . __( 'Right Menu Icon', 'mobile-menu' ) . '"><i class="mob-icon-cancel mob-cancel-button"></i>';
 				}
 
 				$output .= $right_menu_text;
@@ -286,7 +286,7 @@ class WP_Mobile_Menu_Core {
 				?>
 
 				<div class="mob-menu-left-panel mobmenu <?php echo $mobmenu_parent_link; ?> <?php echo $mobmenu_parent_link_2nd_level; ?>">
-					<a href="#" class="mobmenu-left-bt" alt="<?php _e( 'Left Menu Button', 'mob-menu-lang' );?>"><i class="mob-icon-cancel mob-cancel-button"></i></a>
+					<a href="#" class="mobmenu-left-bt" alt="<?php _e( 'Left Menu Button', 'mobile-menu' );?>"><i class="mob-icon-cancel mob-cancel-button"></i></a>
 					<div class="mobmenu_content">
 				<?php
 
@@ -346,7 +346,7 @@ class WP_Mobile_Menu_Core {
 				?>
 				<!--  Right Panel Structure -->
 				<div class="mob-menu-right-panel mobmenu <?php echo $mobmenu_parent_link; ?> <?php echo $mobmenu_parent_link_2nd_level; ?>">
-					<a href="#" class="mobmenu-right-bt"  alt="<?php _e( 'Right Menu Button', 'mob-menu-lang' );?>"><i class="mob-icon-cancel mob-cancel-button"></i></a>
+					<a href="#" class="mobmenu-right-bt"  alt="<?php _e( 'Right Menu Button', 'mobile-menu' );?>"><i class="mob-icon-cancel mob-cancel-button"></i></a>
 					<div class="mobmenu_content">
 					
 			<?php
