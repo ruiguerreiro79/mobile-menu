@@ -152,7 +152,7 @@ class WP_Mobile_Menu_Core {
 			}
 
 			if ( $titan->getOption( 'left_menu_icon_action' ) ) {
-				$left_menu_content .= '<a href="#" class="mobmenu-left-bt" alt="' . __( 'Left Menu Button', 'mobile-menu' ) . '">';
+				$left_menu_content .= '<a href="#" class="mobmenu-left-bt">';
 			} else {
 
 				if ( $titan->getOption( 'left_icon_url_target' ) ) {
@@ -195,7 +195,7 @@ class WP_Mobile_Menu_Core {
 			}
 
 			if ( $titan->getOption( 'right_menu_icon_action' ) ) {
-				$right_menu_content .= '<a href="#" class="mobmenu-right-bt" alt="' . __( 'Right Menu Button', 'mobile-menu' ) . '">';
+				$right_menu_content .= '<a href="#" class="mobmenu-right-bt">';
 			} else {
 
 				if ( $titan->getOption( 'right_icon_url_target' ) ) {
@@ -240,7 +240,7 @@ class WP_Mobile_Menu_Core {
 			?>
 
 			<div class="mob-menu-left-panel mobmenu <?php echo $mobmenu_parent_link; ?> <?php echo $mobmenu_parent_link_2nd_level; ?>">
-				<a href="#" class="mobmenu-left-bt" alt="<?php _e( 'Left Menu Button', 'mobile-menu' );?>"><i class="mob-icon-cancel mob-cancel-button"></i></a>
+				<a href="#" class="mobmenu-left-bt"><i class="mob-icon-cancel mob-cancel-button"></i></a>
 				<div class="mobmenu_content">
 			<?php
 
@@ -299,7 +299,7 @@ class WP_Mobile_Menu_Core {
 				?>
 				<!--  Right Panel Structure -->
 				<div class="mob-menu-right-panel mobmenu <?php echo $mobmenu_parent_link; ?> <?php echo $mobmenu_parent_link_2nd_level; ?>">
-					<a href="#" class="mobmenu-right-bt"  alt="<?php _e( 'Right Menu Button', 'mobile-menu' );?>"><i class="mob-icon-cancel mob-cancel-button"></i></a>
+					<a href="#" class="mobmenu-right-bt"><i class="mob-icon-cancel mob-cancel-button"></i></a>
 					<div class="mobmenu_content">
 					
 			<?php

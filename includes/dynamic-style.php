@@ -78,6 +78,9 @@ if ( $titan->getOption( 'logo_height' ) > 0 ) {
 }
 $logo_height = 'height:' . $logo_height . 'px!important;';
 
+$header_height       = $titan->getOption( 'header_height' );
+$total_header_height = $header_height;
+
 ?>
 
 <style>
@@ -93,23 +96,12 @@ $logo_height = 'height:' . $logo_height . 'px!important;';
 
 /* Our css Custom Options values */
 @media only screen and (max-width:<?php echo $trigger_res; ?>px) {
+	<?php if ( '' !== $titan->getOption( 'hide_elements' ) ) { ?>
 	<?php echo  $titan->getOption( 'hide_elements' ); ?> {
 		display:none !important;
 	}
+	<?php } ?>
 
-	<?php
-	$header_height = $titan->getOption( 'header_height' );
-	$total_header_height = $header_height;
-
-	if ( $titan->getOption( 'disabled_logo_text' ) ) { ?>
-		
-		.mob-menu-logo-holder {
-			display: none;
-		}	
-	<?php
-
-	}
-	?>
 	.mob-menu-left-panel .mobmenu-left-bt, .mob-menu-right-panel .mobmenu-right-bt {
 		position: absolute;
 		right: 0px;
