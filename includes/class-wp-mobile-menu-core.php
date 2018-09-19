@@ -122,6 +122,7 @@ class WP_Mobile_Menu_Core {
 		$left_menu_content             = '';
 		$right_menu_content            = '';
 		$output                        = '';
+		$logo_content                  = '';
 		$output                       .= '<div class="mobmenu-overlay"></div>';
 
 		$header_text = $titan->getOption( 'header_text' );
@@ -177,8 +178,12 @@ class WP_Mobile_Menu_Core {
 			$left_menu_content = apply_filters( 'mm_left_menu_filter', $left_menu_content );
 		}
 
-		// Format the Header Branding.
-		$logo_content = $this->format_header_branding( $titan, $header_text );
+		// If the logo branding isn't disabled.
+		if ( ! $titan->getOption( 'disabled_logo_text' ) ) {
+			// Format the Header Branding.
+			$logo_content = $this->format_header_branding( $titan, $header_text );
+
+		}
 
 		// Right Menu Content.
 		if ( $titan->getOption( 'enable_right_menu' ) && ! $right_logged_in_user ) {
@@ -356,9 +361,11 @@ class WP_Mobile_Menu_Core {
 	public function format_header_branding( $titan, $header_text ) {
 
 		global $mm_fs;
-
-		$logo_img = wp_get_attachment_image_src( $titan->getOption( 'logo_img' ), 'full' );
-		$logo_img = $logo_img[0];
+		$logo_img     = wp_get_attachment_image_src( $titan->getOption( 'logo_img' ), 'full' );
+		$logo_img     = $logo_img[0];
+		$logo_output  = '';
+		$logo_url     = '';
+		$logo_url_end = '';
 
 		if ( $titan->getOption( 'logo_img_retina' ) ) {
 			$logo_img_retina          = wp_get_attachment_image_src( $titan->getOption( 'logo_img_retina' ), 'full' );
@@ -367,9 +374,22 @@ class WP_Mobile_Menu_Core {
 			$logo_img_retina_width    = intval( $logo_img_retina_metadata['width'], 10 ) / 2;
 		}
 
+		$header_branding = $titan->getOption( 'header_branding' );
+
+		if ( ( 'logo' === $header_branding || 'logo-text' === $header_branding || 'text-logo' === $header_branding ) && null !== $logo_img ) {
+			$logo_output .= '<img class="mob-standard-logo" src="' . $logo_img . '"  alt=" ' . __( 'Logo Header Menu', 'mob-menu-lang' ) . '">';
+
+			if ( '' !== $titan->getOption( 'logo_img_retina' ) ) {
+				$logo_output .= '<img class="mob-retina-logo" src="' . $logo_img_retina . '"  alt=" ' . __( 'Logo Header Menu', 'mob-menu-lang' ) . '">';
+			}
+
+		}
+
 		if ( $titan->getOption( 'disabled_logo_url' ) ) {
-			$logo_url = '<h3 class="headertext">';
-			$logo_url_end = '</h3>';
+			if ( '' === $logo_output ) {
+				$logo_url = '<h3 class="headertext">';
+				$logo_url_end = '</h3>';
+			}
 		} else {
 
 			if ( '' === $titan->getOption( 'logo_url' ) ) {
@@ -386,24 +406,10 @@ class WP_Mobile_Menu_Core {
 			$logo_url = '<a href="' . $logo_url . '" class="headertext">';
 		}
 
-		$output = '<div class="mob-menu-logo-holder">' . $logo_url;
-
-		$header_branding = $titan->getOption( 'header_branding' );
-		$logo_output     = '';
-
-		if ( ( 'logo' === $header_branding || 'logo-text' === $header_branding || 'text-logo' === $header_branding ) && null !== $logo_img ) {
-			$logo_output .= '<img class="mob-standard-logo" src="' . $logo_img . '"  alt=" ' . __( 'Logo Header Menu', 'mob-menu-lang' ) . '">';
-
-			if ( '' !== $titan->getOption( 'logo_img_retina' ) ) {
-				//$logo_img_retina = $logo_img;
-				$logo_output .= '<img class="mob-retina-logo" src="' . $logo_img_retina . '"  alt=" ' . __( 'Logo Header Menu', 'mob-menu-lang' ) . '">';
-			}
-
-		}
-
-		$header_text = '<span>' . $header_text . '</span>';
-
 		if ( $header_branding ) {
+
+			$output = '<div class="mob-menu-logo-holder">' . $logo_url;
+			$header_text = '<span>' . $header_text . '</span>';
 
 			switch ( $header_branding ) {
 
