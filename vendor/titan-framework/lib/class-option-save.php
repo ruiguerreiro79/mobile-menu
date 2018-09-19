@@ -18,13 +18,13 @@ class TitanFrameworkOptionSave extends TitanFrameworkOption {
 		}
 
 		if ( empty( $this->settings['save'] ) ) {
-			$this->settings['save'] = __( 'Save Changes', TF_I18NDOMAIN );
+			$this->settings['save'] = __( 'Save Changes', 'mobile-menu' );
 		}
 		if ( empty( $this->settings['reset'] ) ) {
-			$this->settings['reset'] = __( 'Reset to Defaults', TF_I18NDOMAIN );
+			$this->settings['reset'] = __( 'Reset to Defaults', 'mobile-menu' );
 		}
 		if ( empty( $this->settings['reset_question'] ) ) {
-			$this->settings['reset_question'] = __( 'Are you sure you want to reset ALL options to their default values?', TF_I18NDOMAIN );
+			$this->settings['reset_question'] = __( 'Are you sure you want to reset ALL options to their default values?', 'mobile-menu' );
 		}
 
 		?>

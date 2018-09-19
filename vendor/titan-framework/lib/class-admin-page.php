@@ -114,9 +114,8 @@ class TitanFrameworkAdminPage {
 		add_filter( 'admin_footer_text', array( $this, 'addTitanCreditText' ) );
 	}
 
-
 	public function addTitanCreditText() {
-		return __( "<em>Options Page Created with <a href='http://titanframework.net?utm_source=admin&utm_medium=admin footer'>Titan Framework</a></em>", TF_I18NDOMAIN );
+		return __( "<em>Check our documentation at <a href='https://www.wpmobilemenu.com/knowledgebase'>WP Mobile Menu Documentation</a></em>", 'mobile-menu' );
 	}
 
 

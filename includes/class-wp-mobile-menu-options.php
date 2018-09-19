@@ -109,8 +109,8 @@ class WP_Mobile_Menu_options {
 				'type'     => 'enable',
 				'default'  => $enable_left_menu,
 				'desc'     => __( 'Enable or disable the Left Menu.', 'mobile-menu' ),
-				'enabled'  => 'On',
-				'disabled' => 'Off',
+				'enabled'  => __( 'On', 'mobile-menu' ),
+				'disabled' => __( 'Off', 'mobile-menu' ),
 			) );
 
 			$enable_right_menu = get_option( 'mobmenu_opt_right_menu_enabled' );
@@ -127,17 +127,17 @@ class WP_Mobile_Menu_options {
 				'id'       => 'enable_right_menu',
 				'type'     => 'enable',
 				'default'  => $enable_right_menu,
-				'desc'     => 'Enable or disable the Right Menu.',
+				'desc'     => __( 'Enable or disable the Right Menu.', 'mobile-menu' ),
 				'enabled'  => __( 'On', 'mobile-menu' ),
 				'disabled' => __( 'Off', 'mobile-menu' ),
 			) );
 
-			// Use the page title in the Header or Header Banner(global Option).
+			// Menu Display Type that set's the type of animation when the menu opens.
 			$general_tab->createOption( array(
-				'name'    => 'Menu Display Type',
+				'name'    => __( 'Menu Display Type', 'mobile-menu' ),
 				'id'      => 'menu_display_type',
 				'type'    => 'select',
-				'desc'    => 'Choose the display type for the mobile menu.',
+				'desc'    => __( 'Choose the display type for the mobile menu.', 'mobile-menu' ),
 				'options' => $display_type,
 				'default' => '',
 			) );
@@ -154,18 +154,18 @@ class WP_Mobile_Menu_options {
 
 			// Hide Html Elements.
 			$general_tab->createOption( array(
-				'name'    => 'Hide Menu Elements',
+				'name'    => __( 'Hide Menu Elements', 'mobile-menu' ),
 				'id'      => 'hide_elements',
 				'type'    => 'text',
 				'default' => get_option( 'mobmenu_opt_hide_selectors', '' ),
-				'desc'    => '<p>This will hide the desired elements when the Mobile menu is trigerred at the chosen width. You can use CSS class or IDs.</p><br>Example of an ID and a CSS class: #main-navigation, .site-header',
+				'desc'    => __( '<p>This will hide the desired elements when the Mobile menu is trigerred at the chosen width. You can use CSS class or IDs.</p><br>Example of an ID and a CSS class: #main-navigation, .site-header', 'mobile-menu' ),
 			) );
 
 			$general_tab->createOption( array(
-				'name'    => 'Hide elements by default',
+				'name'    => __( 'Hide elements by default', 'mobile-menu' ),
 				'id'      => 'default_hided_elements',
 				'type'    => 'multicheck',
-				'desc'    => 'Check the desired elements',
+				'desc'    => __( 'Check the desired elements', 'mobile-menu' ),
 				'options' => array(
 					'1' => '.nav',
 					'2' => '.main-navigation',
@@ -188,16 +188,16 @@ class WP_Mobile_Menu_options {
 
 			// Sticky Html Elements.
 			$general_tab->createOption( array(
-				'name'    => 'Sticky Html Elements',
+				'name'    => __( 'Sticky Html Elements', 'mobile-menu' ),
 				'id'      => 'sticky_elements',
 				'type'    => 'text',
 				'default' => '',
-				'desc'    => '<p>If you are having issues with sticky elements that dont assume a sticky behaviour, enter the ids or class name that identify that element.</p>',
+				'desc'    => __( '<p>If you are having issues with sticky elements that dont assume a sticky behaviour, enter the ids or class name that identify that element.</p>', 'mobile-menu' ),
 			) );
 
 			// Custom css.
 			$general_tab->createOption( array(
-				'name' => 'Custom CSS',
+				'name' => __( 'Custom CSS', 'mobile-menu' ),
 				'id'   => 'custom_css',
 				'type' => 'code',
 				'desc' => __( 'Put your custom CSS rules here', 'mobile-menu' ),
@@ -206,7 +206,7 @@ class WP_Mobile_Menu_options {
 
 			// Custom js.
 			$general_tab->createOption( array(
-				'name' => 'Custom JS',
+				'name' => __( 'Custom JS', 'mobile-menu' ),
 				'id'   => 'custom_js',
 				'type' => 'code',
 				'desc' => __( 'Put your custom JS rules here', 'mobile-menu' ),
@@ -247,8 +247,8 @@ class WP_Mobile_Menu_options {
 			) );
 
 			$header_branding = array(
-				'logo' => 'Logo',
-				'text' => 'Text',
+				'logo' => __( 'Logo', 'mobile-menu' ),
+				'text' => __( 'Text', 'mobile-menu' ),
 			);
 
 			// Enable/Disable Site Logo(deprecated field).
@@ -270,10 +270,10 @@ class WP_Mobile_Menu_options {
 
 			// Use the page title in the Header or Header Banner(global Option).
 			$header_tab->createOption( array(
-				'name'    => 'Site Logo',
+				'name'    => __( 'Site Logo', 'mobile-menu' ),
 				'id'      => 'header_branding',
 				'type'    => 'select',
-				'desc'    => 'Chose the Header Branding ( Logo/Text ).',
+				'desc'    => __( 'Chose the Header Branding ( Logo/Text ).', 'mobile-menu' ),
 				'options' => $header_branding,
 				'default' => $default_header_branding,
 			) );
@@ -380,14 +380,14 @@ class WP_Mobile_Menu_options {
 
 			// Header Logo/Text Alignment.
 			$header_tab->createOption( array(
-				'name'    => 'Header Logo/Text Alignment',
+				'name'    => __( 'Header Logo/Text Alignment', 'mobile-menu' ),
 				'id'      => 'header_text_align',
 				'type'    => 'select',
-				'desc'    => 'Chose the header Logo/Text alignment.',
+				'desc'    => __( 'Chose the header Logo/Text alignment.', 'mobile-menu' ),
 				'options' => array(
-					'left'   => 'Left',
-					'center' => 'Center',
-					'right'  => 'Right',
+					'left'   => __( 'Left', 'mobile-menu' ),
+					'center' => __( 'Center', 'mobile-menu' ),
+					'right'  => __( 'Right', 'mobile-menu' ),
 				),
 				'default' => 'center',
 			) );
@@ -523,8 +523,8 @@ class WP_Mobile_Menu_options {
 				'type'     => 'enable',
 				'default'  => true,
 				'desc'     => __( 'Open the Left Menu Panel or open a Link url.', 'mobile-menu' ),
-				'enabled'  => 'Open Menu',
-				'disabled' => 'Open Link Url',
+				'enabled'  => __( 'Open Menu', 'mobile-menu' ),
+				'disabled' => __( 'Open Link Url', 'mobile-menu' ),
 			) );
 
 			// Icon URL.
@@ -543,9 +543,10 @@ class WP_Mobile_Menu_options {
 				'type'     => 'enable',
 				'default'  => true,
 				'desc'     => __( 'Choose it the link will open in the same window or in the new window.', 'mobile-menu' ),
-				'enabled'  => 'Self',
-				'disabled' => 'Blank',
+				'enabled'  => __( 'Self', 'mobile-menu' ),
+				'disabled' => __( 'Blank', 'mobile-menu' ),
 			) );
+
 			// Icon Image/text Option.
 			$left_menu_tab->createOption( array(
 				'name'     => __( 'Icon Type', 'mobile-menu' ),
@@ -553,8 +554,8 @@ class WP_Mobile_Menu_options {
 				'type'     => 'enable',
 				'default'  => false,
 				'desc'     => __( 'Choose if you want to display an image or an icon.', 'mobile-menu' ),
-				'enabled'  => 'Image',
-				'disabled' => 'Icon Font',
+				'enabled'  => __( 'Image', 'mobile-menu' ),
+				'disabled' => __( 'Icon Font', 'mobile-menu' ),
 			) );
 
 			// Left Menu Icon Font.
@@ -812,8 +813,8 @@ class WP_Mobile_Menu_options {
 				'type'     => 'enable',
 				'default'  => true,
 				'desc'     => __( 'Open the Right Menu Panel or open a Link url.', 'mobile-menu' ),
-				'enabled'  => 'Open Menu',
-				'disabled' => 'Open Link Url',
+				'enabled'  => __( 'Open Menu', 'mobile-menu' ),
+				'disabled' => __( 'Open Link Url', 'mobile-menu' ),
 			) );
 
 			// Icon URL.
@@ -832,8 +833,8 @@ class WP_Mobile_Menu_options {
 				'type'     => 'enable',
 				'default'  => true,
 				'desc'     => __( 'Choose it the link will open in the same window or in the new window.', 'mobile-menu' ),
-				'enabled'  => 'Self',
-				'disabled' => 'Blank',
+				'enabled'  => __( 'Self', 'mobile-menu' ),
+				'disabled' => __( 'Blank', 'mobile-menu' ),
 			) );
 
 			// Icon Image/Icon Font.
