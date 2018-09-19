@@ -8,7 +8,7 @@ class WP_Mobile_Menu_Core {
 	}
 
 	/**
-	 * Init WP Mobile Menu
+	 * Init WP Mobile Menu.
 	 *
 	 * @since 1.0
 	 */
@@ -30,31 +30,29 @@ class WP_Mobile_Menu_Core {
 
 	}
 
-	/***
+	/**
 	 * Frontend Scripts.
 	 */
 	public function frontend_enqueue_scripts() {
 
-		if ( ! $this->is_page_menu_disabled() ) {
-			wp_register_script( 'mobmenujs', plugins_url( 'js/mobmenu.js', __FILE__ ), array( 'jquery' ) );
-			wp_enqueue_script( 'mobmenujs' );
-			wp_enqueue_style( 'cssmobmenu-icons', plugins_url( 'css/mobmenu-icons.css', __FILE__ ) );
-			// Filters.
-			add_filter( 'wp_head', array( $this, 'load_dynamic_css_style' ) );
-		}
+		wp_register_script( 'mobmenujs', plugins_url( 'js/mobmenu.js', __FILE__ ), array( 'jquery' ) );
+		wp_enqueue_script( 'mobmenujs' );
+		wp_enqueue_style( 'cssmobmenu-icons', plugins_url( 'css/mobmenu-icons.css', __FILE__ ) );
+		// Filters.
+		add_filter( 'wp_head', array( $this, 'load_dynamic_css_style' ) );
 
 	}
 
-	/***
-	 * Load dynamic css
+	/**
+	 * Load dynamic CSS.
 	 */
 	public function load_dynamic_css_style() {
-		if ( ! $this->is_page_menu_disabled() ) {
-			include_once 'dynamic-style.php';
-		}
+
+		include_once 'dynamic-style.php';
+
 	}
 
-	/***
+	/**
 	 * Dismiss the WP Mobile Menu Pro Banner
 	 */
 	public function dismiss_wp_mobile_notice() {
@@ -64,8 +62,8 @@ class WP_Mobile_Menu_Core {
 		wp_die();
 	}
 
-	/***
-	 * Build the icons HTML
+	/**
+	 * Build the icons HTML.
 	 */
 	public function get_icons_html() {
 		if ( isset( $_POST['menu_item_id'] ) ) {
@@ -110,229 +108,179 @@ class WP_Mobile_Menu_Core {
 		wp_die();
 	}
 
-	/***
+	/**
 	 * Build the WP Mobile Menu Html Markup.
 	 */
 	public function load_menu_html_markup() {
 		global  $mm_fs ;
-		$left_logged_in_user = false;
-		$right_logged_in_user = false;
-		$titan = TitanFramework::getInstance( 'mobmenu' );
-		$menu_display_type = 'mob-menu-slideout';
+		$titan                         = TitanFramework::getInstance( 'mobmenu' );
+		$menu_display_type             = 'mob-menu-slideout';
+		$left_logged_in_user           = false;
+		$right_logged_in_user          = false;
 		$mobmenu_parent_link           = '';
 		$mobmenu_parent_link_2nd_level = '';
-			$output = '';
-		$output .= '<div class="mobmenu-overlay"></div>';
+		$left_menu_content             = '';
+		$right_menu_content            = '';
+		$output                        = '';
+		$output                       .= '<div class="mobmenu-overlay"></div>';
 
-		// Check if Header Menu Toolbar is enabled.
-		if ( ! $this->is_page_menu_disabled() ) {
-			$header_text = $titan->getOption( 'header_text' );
-			if ( '' === $header_text ) {
-				$header_text = get_bloginfo();
+		$header_text = $titan->getOption( 'header_text' );
+		if ( '' === $header_text ) {
+			$header_text = get_bloginfo();
+		}
+
+		$sticky_el_data_detach = '';
+		if ( $titan->getOption( 'sticky_elements' ) ) {
+			$sticky_el_data_detach = 'data-detach-el="' . $titan->getOption( 'sticky_elements' ) . '"';
+		}
+
+		$output .= '<div class="mob-menu-header-holder mobmenu" ' . $sticky_el_data_detach . '>';
+
+		$display_type = $titan->getOption( 'menu_display_type' );
+
+		if ( 'slideout-over' === $display_type || '' === $display_type ) {
+			$menu_display_type = ' data-menu-display="mob-menu-slideout-over" ';
+		} else {
+			$menu_display_type = ' data-menu-display="mob-menu-slideout" ';
+		}
+
+		if ( $titan->getOption( 'enable_left_menu' ) && ! $left_logged_in_user ) {
+			$left_menu_text = '';
+			if ( '' !== $titan->getOption( 'left_menu_text' ) ) {
+				$left_menu_text .= '<span class="left-menu-icon-text">' . $titan->getOption( 'left_menu_text' ) . '</span>';
 			}
 
-			$sticky_el_data_detach = '';
-			if ( $titan->getOption( 'sticky_elements' ) ) {
-				$sticky_el_data_detach = 'data-detach-el="' . $titan->getOption( 'sticky_elements' ) . '"';
-			}
-
-			$display_type = $titan->getOption( 'menu_display_type' );
-
-			if ( 'slideout-over' === $display_type || '' === $display_type ) {
-				$menu_display_type =' data-menu-display="mob-menu-slideout-over" ';
-			} else {
-				$menu_display_type = ' data-menu-display="mob-menu-slideout" ';
-			}
-
-			if ( $titan->getOption( 'sticky_elements' ) ) {
-				$sticky_el_data_detach = 'data-detach-el="' . $titan->getOption( 'sticky_elements' ) . '"';
-			}
-			$output .= '<div class="mob-menu-header-holder mobmenu" ' . $sticky_el_data_detach . $menu_display_type .'>';
-
-			if ( $titan->getOption( 'enable_left_menu' ) && ! $left_logged_in_user ) {
-				$left_menu_text = '';
-				if ( '' !== $titan->getOption( 'left_menu_text' ) ) {
-					$left_menu_text .= '<span class="left-menu-icon-text">' . $titan->getOption( 'left_menu_text' ) . '</span>';
-				}
-
-				if ( $titan->getOption( 'left_menu_icon_action' ) ) {
-					$output .= '<div  class="mobmenul-container"><a href="#" class="mobmenu-left-bt" alt="' . __( 'Left Menu Button', 'mobile-menu' ) . '">';
-				} else {
-
-					if ( $titan->getOption( 'left_icon_url_target' ) ) {
-						$left_icon_url_target = '_self';
-					} else {
-						$left_icon_url_target = '_blank';
-					}
-
-					$output .= '<div  class="mobmenul-container"><a href="' . $titan->getOption( 'left_icon_url' ) . '" target="' . $left_icon_url_target . '" id="mobmenu-center">';
-				}
-
-				$left_icon_image = wp_get_attachment_image_src( $titan->getOption( 'left_menu_icon' ) );
-				$left_icon_image = $left_icon_image[0];
-
-				if ( ! $titan->getOption( 'left_menu_icon_opt' ) || '' === $left_icon_image ) {
-					$output .= '<i class="mob-icon-' . $titan->getOption( 'left_menu_icon_font' ) . ' mob-menu-icon"></i><i class="mob-icon-cancel mob-cancel-button"></i>';
-				} else {
-					$output .= '<img src="' . $left_icon_image . '" alt="' . __( 'Left Menu Icon', 'mobile-menu' ) . '"><i class="mob-icon-cancel mob-cancel-button"></i>';
-				}
-
-				$output .= $left_menu_text;
-				$output .= '</a></div>';
-			}
-
-			$logo_img = wp_get_attachment_image_src( $titan->getOption( 'logo_img' ), 'full' );
-			$logo_img = $logo_img[0];
-
-			// Premium options.
-			if ( $mm_fs->is__premium_only() && $titan->getOption( 'logo_img_retina' ) ) {
-				$logo_img_retina = wp_get_attachment_image_src( $titan->getOption( 'logo_img_retina' ), 'full' );
-				$logo_img_retina = $logo_img_retina[0];
-				$logo_img_retina_metadata = wp_get_attachment_metadata( $titan->getOption( 'logo_img_retina' ) );
-				$logo_img_retina_width = intval( $logo_img_retina_metadata['width'], 10 ) / 2;
-			}
-
-			if ( $titan->getOption( 'disabled_logo_url' ) ) {
-				$logo_url = '<h3 class="headertext">';
-				$logo_url_end = '</h3>';
+			if ( $titan->getOption( 'left_menu_icon_action' ) ) {
+				$left_menu_content .= '<a href="#" class="mobmenu-left-bt" alt="' . __( 'Left Menu Button', 'mobile-menu' ) . '">';
 			} else {
 
-				if ( '' === $titan->getOption( 'logo_url' ) ) {
-					if ( function_exists( 'pll_home_url' ) ) {
-						$logo_url = pll_home_url();
-					} else {
-						$logo_url = get_bloginfo( 'url' );
-					}
+				if ( $titan->getOption( 'left_icon_url_target' ) ) {
+					$left_icon_url_target = '_self';
 				} else {
-					$logo_url = $titan->getOption( 'logo_url' );
+					$left_icon_url_target = '_blank';
 				}
 
-				$logo_url_end = '</a>';
-				$logo_url = '<a href="' . $logo_url . '" class="headertext">';
+				$left_menu_content .= '<a href="' . $titan->getOption( 'left_icon_url' ) . '" target="' . $left_icon_url_target . '" id="mobmenu-center">';
 			}
 
-			$output .= '<div class="mob-menu-logo-holder">' . $logo_url;
-			$header_branding = $titan->getOption( 'header_branding' );
-			$logo_output = '';
+			$left_icon_image = wp_get_attachment_image_src( $titan->getOption( 'left_menu_icon' ) );
+			$left_icon_image = $left_icon_image[0];
 
-			if ( ('logo' === $header_branding || 'logo-text' === $header_branding || 'text-logo' === $header_branding) && '' !== $logo_img ) {
-				$logo_output = '<img class="mob-standard-logo" src="' . $logo_img . '"  alt=" ' . __( 'Logo Header Menu', 'mobile-menu' ) . '">';
+			if ( ! $titan->getOption( 'left_menu_icon_opt' ) || '' === $left_icon_image ) {
+				$left_menu_content .= '<i class="mob-icon-' . $titan->getOption( 'left_menu_icon_font' ) . ' mob-menu-icon"></i><i class="mob-icon-cancel mob-cancel-button"></i>';
+			} else {
+				$left_menu_content .= '<img src="' . $left_icon_image . '" alt="' . __( 'Left Menu Icon', 'mobile-menu' ) . '"><i class="mob-icon-cancel mob-cancel-button"></i>';
 			}
 
-			$header_text = '<span>' . $header_text . '</span>';
+			$left_menu_content .= $left_menu_text;
+			$left_menu_content .= '</a>';
+			$left_menu_content = apply_filters( 'mm_left_menu_filter', $left_menu_content );
+		}
 
-			if ( $header_branding ) {
-				switch ( $header_branding ) {
-					case 'logo':
-						$output .= $logo_output;
-						break;
-					case 'text':
-						$output .= $header_text;
-						break;
-					case 'logo-text':
-						$output .= $logo_output;
-						$output .= $header_text;
-						break;
-					case 'text-logo':
-						$output .= $header_text;
-						$output .= $logo_output;
-						break;
-				}
+		// Format the Header Branding.
+		$logo_content = $this->format_header_branding( $titan, $header_text );
+
+		// Right Menu Content.
+		if ( $titan->getOption( 'enable_right_menu' ) && ! $right_logged_in_user ) {
+			$right_menu_text    = '';
+			$right_menu_content = '';
+
+			if ( '' !== $titan->getOption( 'right_menu_text' ) ) {
+				$right_menu_text .= '<span class="right-menu-icon-text">' . $titan->getOption( 'right_menu_text' ) . '</span>';
 			}
-			$output .= $logo_url_end . '</div>';
 
-			if ( $titan->getOption( 'enable_right_menu' ) && ! $right_logged_in_user ) {
-				$right_menu_text = '';
-				if ( '' !== $titan->getOption( 'right_menu_text' ) ) {
-					$right_menu_text .= '<span class="right-menu-icon-text">' . $titan->getOption( 'right_menu_text' ) . '</span>';
-				}
+			if ( $titan->getOption( 'right_menu_icon_action' ) ) {
+				$right_menu_content .= '<a href="#" class="mobmenu-right-bt" alt="' . __( 'Right Menu Button', 'mobile-menu' ) . '">';
+			} else {
 
-				if ( $titan->getOption( 'right_menu_icon_action' ) ) {
-					$output .= '<div  class="mobmenur-container"><a href="#" class="mobmenu-right-bt" alt="' . __( 'Right Menu Button', 'mobile-menu' ) . '">';
+				if ( $titan->getOption( 'right_icon_url_target' ) ) {
+					$right_icon_url_target = '_self';
 				} else {
-
-					if ( $titan->getOption( 'right_icon_url_target' ) ) {
-						$right_icon_url_target = '_self';
-					} else {
-						$right_icon_url_target = '_blank';
-					}
-
-					$output .= '<div  class="mobmenur-container"><a href="' . $titan->getOption( 'right_icon_url' ) . '" target="' . $right_icon_url_target . '">';
+					$right_icon_url_target = '_blank';
 				}
 
-				$right_icon_image = wp_get_attachment_image_src( $titan->getOption( 'right_menu_icon' ) );
-				$right_icon_image = $right_icon_image[0];
-
-				if ( ! $titan->getOption( 'right_menu_icon_opt' ) || '' === $right_icon_image ) {
-					$output .= '<i class="mob-icon-' . $titan->getOption( 'right_menu_icon_font' ) . ' mob-menu-icon"></i><i class="mob-icon-cancel mob-cancel-button"></i>';
-				} else {
-					$output .= '<img src="' . $right_icon_image . '" alt="' . __( 'Right Menu Icon', 'mobile-menu' ) . '"><i class="mob-icon-cancel mob-cancel-button"></i>';
-				}
-
-				$output .= $right_menu_text;
-				$output .= '</a></div>';
+				$right_menu_content .= '<a href="' . $titan->getOption( 'right_icon_url' ) . '" target="' . $right_icon_url_target . '">';
 			}
 
-			$output .= '</div>';
-			echo $output;
+			$right_icon_image = wp_get_attachment_image_src( $titan->getOption( 'right_menu_icon' ) );
+			$right_icon_image = $right_icon_image[0];
 
-			if ( $titan->getOption( 'enable_left_menu' ) && ! $left_logged_in_user ) {
-				if ( $titan->getOption( 'left_menu_parent_link_submenu' ) ) {
-					$mobmenu_parent_link = 'mobmenu-parent-link';
-				}
-				if ( $titan->getOption( 'left_menu_parent_link_submenu_2nd_level' ) ) {
-					$mobmenu_parent_link_2nd_level = 'mobmenu-parent-link-2nd-level';
-				}
+			if ( ! $titan->getOption( 'right_menu_icon_opt' ) || '' === $right_icon_image ) {
+				$right_menu_content .= '<i class="mob-icon-' . $titan->getOption( 'right_menu_icon_font' ) . ' mob-menu-icon"></i><i class="mob-icon-cancel mob-cancel-button"></i>';
+			} else {
+				$right_menu_content .= '<img src="' . $right_icon_image . '" alt="' . __( 'Right Menu Icon', 'mobile-menu' ) . '"><i class="mob-icon-cancel mob-cancel-button"></i>';
+			}
+
+			$right_menu_content .= $right_menu_text;
+			$right_menu_content .= '</a>';
+			$right_menu_content = apply_filters( 'mm_right_menu_filter', $right_menu_content );
+		}
+
+		// Build the Header Content.
+		$header_output         = '<div  class="mobmenul-container">' . $left_menu_content . '</div>';
+		$header_output        .= $logo_content;
+		$header_output        .= '<div  class="mobmenur-container">' . $right_menu_content . '</div>';
+		$output               .= $header_output;
+		$output               .= '</div>';
+
+		echo $output;
+
+		if ( $titan->getOption( 'enable_left_menu' ) && ! $left_logged_in_user ) {
+			if ( $titan->getOption( 'left_menu_parent_link_submenu' ) ) {
+				$mobmenu_parent_link = 'mobmenu-parent-link';
+			}
+			if ( $titan->getOption( 'left_menu_parent_link_submenu_2nd_level' ) ) {
+				$mobmenu_parent_link_2nd_level = 'mobmenu-parent-link-2nd-level';
+			}
+			?>
+
+			<div class="mob-menu-left-panel mobmenu <?php echo $mobmenu_parent_link; ?> <?php echo $mobmenu_parent_link_2nd_level; ?>">
+				<a href="#" class="mobmenu-left-bt" alt="<?php _e( 'Left Menu Button', 'mobile-menu' );?>"><i class="mob-icon-cancel mob-cancel-button"></i></a>
+				<div class="mobmenu_content">
+			<?php
+
+			if ( is_active_sidebar( 'mobmlefttop' ) ) {
 				?>
+				<ul class="leftmtop">
+					<?php dynamic_sidebar( 'Left Menu Top' ); ?>
+				</ul>
+			<?php
+			}
 
-				<div class="mob-menu-left-panel mobmenu <?php echo $mobmenu_parent_link; ?> <?php echo $mobmenu_parent_link_2nd_level; ?>">
-					<a href="#" class="mobmenu-left-bt" alt="<?php _e( 'Left Menu Button', 'mobile-menu' );?>"><i class="mob-icon-cancel mob-cancel-button"></i></a>
-					<div class="mobmenu_content">
-				<?php
+			// Grab the current left menu.
+			$current_left_menu = $titan->getOption( 'left_menu' );
+			if ( '0' === $current_left_menu ){
+				$current_left_menu = '';
+			}
 
-				if ( is_active_sidebar( 'mobmlefttop' ) ) {
-					?>
-					<ul class="leftmtop">
-						<?php dynamic_sidebar( 'Left Menu Top' ); ?>
+			// Only build the menu it there is a menu assigned to it.
+			if ( '' !== $current_left_menu ) {
+				// Display the left menu.
+				wp_nav_menu( array(
+					'menu'        => $current_left_menu,
+					'items_wrap'  => '<ul id="mobmenuleft">%3$s</ul>',
+					'fallback_cb' => false,
+					'depth'       => 3,
+					'walker'      => new WP_Mobile_Menu_Walker_Nav_Menu( 'left' ),
+				) );
+			}else {
+				echo "<span class='no-menu-assigned'>Assign a menu in the Left Menu options.</span>";
+			}
+
+			// Check if the Left Menu Bottom Widget has any content.
+			if ( is_active_sidebar( 'mobmleftbottom' ) ) {
+				?>
+					<ul class="leftmbottom">
+						<?php dynamic_sidebar( 'Left Menu Bottom' ); ?>
 					</ul>
-				<?php
-				}
+			<?php
+			}
 
-				// Grab the current left menu.
-				$current_left_menu = $titan->getOption( 'left_menu' );
-				if ( '0' === $current_left_menu ){
-					$current_left_menu = '';
-				}
+			?>
 
-				// Only build the menu it there is a menu assigned to it.
-				if ( '' !== $current_left_menu ) {
-					// Display the left menu.
-					wp_nav_menu( array(
-						'menu'        => $current_left_menu,
-						'items_wrap'  => '<ul id="mobmenuleft">%3$s</ul>',
-						'fallback_cb' => false,
-						'depth'       => 3,
-						'walker'      => new WP_Mobile_Menu_Walker_Nav_Menu( 'left' ),
-					) );
-				}else {
-					echo "<span class='no-menu-assigned'>Assign a menu in the Left Menu options.</span>";
-				}
-
-				// Check if the Left Menu Bottom Widget has any content.
-				if ( is_active_sidebar( 'mobmleftbottom' ) ) {
-					?>
-						<ul class="leftmbottom">
-							<?php dynamic_sidebar( 'Left Menu Bottom' ); ?>
-						</ul>
-				<?php
-				}
-
-				?>
-
-				</div><div class="mob-menu-left-bg-holder"></div></div>
+			</div><div class="mob-menu-left-bg-holder"></div></div>
 
 			<?php
-			} 
 
 			if ( $titan->getOption( 'enable_right_menu' ) && ! $right_logged_in_user ) {
 				$mobmenu_parent_link = '';
@@ -396,6 +344,99 @@ class WP_Mobile_Menu_Core {
 		}
 	}
 
+
+	/**
+	 *
+	 * Format Header Branding(Logo + Text).
+	 *
+	 * @since 2.6
+	 * @var $titan
+	 * @var $header_text
+	 */
+	public function format_header_branding( $titan, $header_text ) {
+
+		global $mm_fs;
+
+		$logo_img = wp_get_attachment_image_src( $titan->getOption( 'logo_img' ), 'full' );
+		$logo_img = $logo_img[0];
+
+		if ( $titan->getOption( 'logo_img_retina' ) ) {
+			$logo_img_retina          = wp_get_attachment_image_src( $titan->getOption( 'logo_img_retina' ), 'full' );
+			$logo_img_retina          = $logo_img_retina[0];
+			$logo_img_retina_metadata = wp_get_attachment_metadata( $titan->getOption( 'logo_img_retina' ) );
+			$logo_img_retina_width    = intval( $logo_img_retina_metadata['width'], 10 ) / 2;
+		}
+
+		if ( $titan->getOption( 'disabled_logo_url' ) ) {
+			$logo_url = '<h3 class="headertext">';
+			$logo_url_end = '</h3>';
+		} else {
+
+			if ( '' === $titan->getOption( 'logo_url' ) ) {
+				if ( function_exists( 'pll_home_url' ) ) {
+					$logo_url = pll_home_url();
+				} else {
+					$logo_url = get_bloginfo( 'url' );
+				}
+			} else {
+				$logo_url = $titan->getOption( 'logo_url' );
+			}
+
+			$logo_url_end = '</a>';
+			$logo_url = '<a href="' . $logo_url . '" class="headertext">';
+		}
+
+		$output = '<div class="mob-menu-logo-holder">' . $logo_url;
+
+		$header_branding = $titan->getOption( 'header_branding' );
+		$logo_output     = '';
+
+		if ( ( 'logo' === $header_branding || 'logo-text' === $header_branding || 'text-logo' === $header_branding ) && null !== $logo_img ) {
+			$logo_output .= '<img class="mob-standard-logo" src="' . $logo_img . '"  alt=" ' . __( 'Logo Header Menu', 'mob-menu-lang' ) . '">';
+
+			if ( '' !== $titan->getOption( 'logo_img_retina' ) ) {
+				//$logo_img_retina = $logo_img;
+				$logo_output .= '<img class="mob-retina-logo" src="' . $logo_img_retina . '"  alt=" ' . __( 'Logo Header Menu', 'mob-menu-lang' ) . '">';
+			}
+
+		}
+
+		$header_text = '<span>' . $header_text . '</span>';
+
+		if ( $header_branding ) {
+
+			switch ( $header_branding ) {
+
+				case 'logo':
+					$output .= $logo_output;
+					break;
+				case 'text':
+					$output .= $header_text;
+					break;
+				case 'logo-text':
+					$output .= $logo_output;
+					$output .= $header_text;
+					break;
+				case 'text-logo':
+					$output .= $header_text;
+					$output .= $logo_output;
+					break;
+
+			}
+		}
+
+		$output .= $logo_url_end . '</div>';
+
+		return $output;
+
+	}
+
+	/**
+	 *
+	 * Save Menu Item Icon.
+	 *
+	 * @since 2.0
+	 */
 	public function save_menu_item_icon() {
 
 		if ( isset( $_POST['menu_item_id'] ) ) {
@@ -408,7 +449,9 @@ class WP_Mobile_Menu_Core {
 		}
 	}
 
-	// Register Sidebar Menu Widgets.
+	/**
+	 * Register Sidebar Menu Widgets.
+	 */
 	public function register_sidebar() {
 
 		$args = array(
@@ -456,30 +499,9 @@ class WP_Mobile_Menu_Core {
 		register_sidebar( $args );
 	}
 
-	// Check if WP Mobile Menu should be disabled in this page.
-	public function is_page_menu_disabled() {
-		global  $mm_fs ;
-		global  $wp_query ;
-		$titan = TitanFramework::getInstance( 'mobmenu' );
-
-		// Premium options.
-		if ( $mm_fs->is__premium_only() ) {
-			$current_id = 0;
-			if ( isset( $wp_query->post ) ) {
-				$current_id = $wp_query->post->ID;
-			}
-
-			if ( ! $titan->getOption( 'disable_menu_pages' ) ) {
-				return false;
-			} else {
-				return in_array( $current_id, $titan->getOption( 'disable_menu_pages' ) );
-			}
-		} else {
-				return false;
-		}
-
-	}
-
+	/**
+	 * Get the Icon Font list.
+	 */
 	public function get_icons_list() {
 		global  $mm_fs ;
 		$icons_base = array(

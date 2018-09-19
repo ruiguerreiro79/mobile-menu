@@ -784,6 +784,21 @@ $logo_height = 'height:' . $logo_height . 'px!important;';
 		<?php echo $logo_height; ?>
 	}
 }
+
+@media (-webkit-min-device-pixel-ratio: 2), (min-resolution: 192dpi) {
+	.mob-retina-logo {
+		display: inline-block!important;
+	}
+	.mob-standard-logo {
+		display: none!important;
+	}
+}
+.mob-retina-logo {
+	display: none;
+}
+.mob-standard-logo {
+	display: inline-block;
+}
 .mobmenu-push-wrap {
 	height:100%;
 }

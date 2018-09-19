@@ -299,6 +299,15 @@ class WP_Mobile_Menu_options {
 				'unit'    => 'px',
 			) );
 
+			// Site Logo Retina Image.
+			$header_tab->createOption( array(
+				'name'    => __( 'Logo Retina', 'mob-menu-lang' ),
+				'id'      => 'logo_img_retina',
+				'type'    => 'upload',
+				'desc'    => __( 'Upload your logo image for retina devices', 'mob-menu-lang' ),
+				'default' => get_option( 'mobmenu_opt_site_logo_img' ),
+			) );
+
 			// Enable/Disable Logo Url.
 			$header_tab->createOption( array(
 				'name'     => __( 'Disable Logo URL ', 'mobile-menu' ),
