@@ -82,9 +82,6 @@ $header_height       = $titan->getOption( 'header_height' );
 $total_header_height = $header_height;
 
 ?>
-
-<style>
-
 /* Hide WP Mobile Menu outside the width of trigger */
 @media only screen and (min-width:<?php echo $trigger_res; ?>px) {
 	
@@ -800,7 +797,5 @@ $total_header_height = $header_height;
 	margin-top: 20px;
 	position: absolute;
 }
-
-</style>
 
 <?php

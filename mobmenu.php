@@ -17,6 +17,8 @@
 if ( ! defined( 'ABSPATH' ) ) {
 	die;
 }
+define( 'WP_MOBILE_MENU_PLUGIN_PATH', plugin_dir_path( __FILE__ ) );
+
 if ( ! class_exists( 'WP_Mobile_Menu' ) ) {
 	/**
 	 * Main Mobile Menu class
@@ -65,6 +67,8 @@ if ( ! class_exists( 'WP_Mobile_Menu' ) ) {
 
 			// Hooks.
 			if ( is_admin() ) {
+				// Create dynamic CSS file if doesn't exist.
+				//add_action( 'wp', array( $this->mobmenu_core, 'generate_css_file' ), 100 );
 				// Admin Scripts.
 				add_action( 'admin_enqueue_scripts', array( $this, 'admin_enqueue_scripts' ) );
 			}

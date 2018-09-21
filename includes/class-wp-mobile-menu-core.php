@@ -47,8 +47,32 @@ class WP_Mobile_Menu_Core {
 	 * Load dynamic CSS.
 	 */
 	public function load_dynamic_css_style() {
+		$titan         = TitanFramework::getInstance( 'mobmenu' );
+		$titan_css     = new TitanFrameworkCSS( $titan );
+		$css           = get_option( $titan_css->getCSSSlug() );
+		$generated_css = $titan_css->getCSSFilePath();
 
-		include_once 'dynamic-style.php';
+		if ( ! file_exists( $generated_css ) ) {
+			echo '<style>';
+			include_once 'dynamic-style.php';
+			echo '</style>';
+		}
+
+	}
+
+	/**
+	 * Generate CSS File.
+	 */
+	public function generate_css_file() {
+
+		$titan         = TitanFramework::getInstance( 'mobmenu' );
+		$titan_css     = new TitanFrameworkCSS( $titan );
+		$css           = get_option( $titan_css->getCSSSlug() );
+		$generated_css = $titan_css->getCSSFilePath();
+
+		if ( ! file_exists( $generated_css ) ) {
+			$titan_css->_generateMissingCSS();
+		}
 
 	}
 

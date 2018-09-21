@@ -31,6 +31,13 @@ class TitanFrameworkCSS {
 	function __construct( $frameworkInstance ) {
 		$this->frameworkInstance = $frameworkInstance;
 
+		$css           = get_option( $this->getCSSSlug() );
+		$generated_css = $this->getCSSFilePath();
+
+		if ( ! file_exists( $generated_css ) || empty( $css ) ) {
+			add_action( 'admin_init', array( $this, '_generateMissingCSS' ), 1000 );
+		}
+
 		// Gather all the options
 		add_action( 'tf_create_option_' . $frameworkInstance->optionNamespace, array( $this, 'getOptionsWithCSS' ) );
 
@@ -92,18 +99,17 @@ class TitanFrameworkCSS {
 	 */
 	public function enqueueCSS() {
 
-		// Only enqueue the generated css if we have the settings for it
+		// Only enqueue the generated css if we have the settings for it.
 		if ( $this->frameworkInstance->settings['css'] == 'generate' ) {
 
 			$css = get_option( $this->getCSSSlug() );
-			$generatedCss = $this->getCSSFilePath();
-
-			if ( file_exists( $generatedCss ) && empty( $css ) ) {
+			$generated_css = $this->getCSSFilePath();
+			if ( file_exists( $generated_css ) && empty( $css ) ) {
 				wp_enqueue_style( 'tf-compiled-options-' . $this->frameworkInstance->optionNamespace, $this->getCSSFileURL(), __FILE__ );
 			}
+
 		}
 	}
-
 
 	/**
 	 * Gathers all options with IDs for generation of CSS rules
@@ -125,8 +131,8 @@ class TitanFrameworkCSS {
 	 * @return  string a unique slug that uses the option namespace
 	 * @since   1.2
 	 */
-	private function getCSSSlug() {
-		return TF . '-' . str_replace( ' ', '-', trim( strtolower( $this->frameworkInstance->optionNamespace ) ) . '-css' );
+	public function getCSSSlug() {
+		return 'dynamic-' . str_replace( ' ', '-', trim( strtolower( $this->frameworkInstance->optionNamespace ) ) );
 	}
 
 
@@ -136,10 +142,10 @@ class TitanFrameworkCSS {
 	 * @return  string The full path to the CSS file
 	 * @since   1.2
 	 */
-	private function getCSSFilePath() {
-		$uploads = wp_upload_dir();
+	public function getCSSFilePath() {
+		$uploads       = wp_upload_dir();
 		$uploadsFolder = trailingslashit( $uploads['basedir'] );
-		$namespace = $this->frameworkInstance->optionNamespace;
+		$namespace     = $this->frameworkInstance->optionNamespace;
 		return apply_filters( "tf_css_get_css_file_path_{$namespace}", $uploadsFolder . $this->getCSSSlug() . '.css' );
 	}
 
@@ -215,7 +221,20 @@ class TitanFrameworkCSS {
 		}
 		return $cssString;
 	}
+	/**
+	 * Generates a CSS string of all the WP Mobile Menu options
+	 *
+	 * @return  string A CSS string of all the values
+	 * @since  2.6.2
+	 */
+	public function generateMobileMenuCSS() {
+		ob_start();
+		require_once( WP_MOBILE_MENU_PLUGIN_PATH . '/includes/dynamic-style.php' );
+		$output = ob_get_contents();
+		ob_end_clean();
 
+		return (string)$output;
+	}
 
 	/**
 	 * Generates a CSS string of all the options
@@ -226,14 +245,14 @@ class TitanFrameworkCSS {
 	public function generateCSS() {
 		$cssString = '';
 
-		// These are the option types which are not allowed:
+		// These are the option types which are not allowed.
 		$noCSSOptionTypes = array(
 			'text',
 			'textarea',
 			'editor',
 		);
 
-		// Compile as SCSS & minify
+		// Compile as SCSS & minify.
 		require_once( trailingslashit( dirname( dirname( __FILE__ ) ) ) . 'inc/scssphp/scss.inc.php' );
 		$scss = new titanscssc();
 
@@ -296,7 +315,8 @@ class TitanFrameworkCSS {
 			$scss->setFormatter( self::SCSS_COMPRESSION );
 			try {
 				$testerForValidCSS = $scss->compile( $cssString );
-				$cssString = $testerForValidCSS;
+				$cssString  = $testerForValidCSS;
+				$cssString .= $scss->compile( $this->generateMobileMenuCSS() );
 			} catch ( Exception $e ) {
 			}
 		}
@@ -349,26 +369,26 @@ class TitanFrameworkCSS {
 	 * @since	1.4.1
 	 */
 	public function _generateMissingCSS() {
-		// WP_Filesystem is only available in the admin
+		// WP_Filesystem is only available in the admin.
 		if ( ! is_admin() ) {
 			return;
 		}
 
-		$cssFilename = $this->getCSSFilePath();
+		$css_filename = $this->getCSSFilePath();
 
 		WP_Filesystem();
 		global $wp_filesystem;
 
-		// Check if the file exists
-		if ( $wp_filesystem->exists( $cssFilename ) ) {
+		// Check if the file exists.
+		if ( $wp_filesystem->exists( $css_filename ) ) {
 			return;
 		}
 
-		// Verify directory
-		if ( ! $wp_filesystem->is_dir( dirname( $cssFilename ) ) ) {
+		// Verify directory.
+		if ( ! $wp_filesystem->is_dir( dirname( $css_filename ) ) ) {
 			return;
 		}
-		if ( ! $wp_filesystem->is_writable( dirname( $cssFilename ) ) ) {
+		if ( ! $wp_filesystem->is_writable( dirname( $css_filename ) ) ) {
 			return;
 		}
 
