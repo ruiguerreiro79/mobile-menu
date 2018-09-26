@@ -62,15 +62,6 @@ if ( ! class_exists( 'TitanFrameworkEmbedder' ) ) {
 			}
 			require_once( 'titan-framework.php' );
 
-			$titan         = new TitanFramework();
-			$titan         = TitanFramework::getInstance( 'mobmenu' );
-			$titan_css     = new TitanFrameworkCSS( $titan );
-			$css           = get_option( $titan_css->getCSSSlug() );
-			$generated_css = $titan_css->getCSSFilePath();
-
-			if ( ! file_exists( $generated_css ) ) {
-				$titan_css->_generateMissingCSS();
-			}
 		}
 	}
 

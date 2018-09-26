@@ -123,6 +123,7 @@ if ( ! function_exists( 'titan_get_googlefonts' ) ) {
 			array( 'name' => 'Averia Sans Libre', 'subsets' => array( 'latin' ), 'variants' => array( '300', '300italic', '400', 'italic', '700', '700italic' ) ),
 			array( 'name' => 'Averia Serif Libre', 'subsets' => array( 'latin' ), 'variants' => array( '300', '300italic', '400', 'italic', '700', '700italic' ) ),
 			array( 'name' => 'Bad Script', 'subsets' => array( 'latin', 'cyrillic' ), 'variants' => array( '400' ) ),
+			array( 'name' => 'Baloo', 'subsets' => array( 'latin', 'cyrillic' ), 'variants' => array( '400' ) ),
 			array( 'name' => 'Balthazar', 'subsets' => array( 'latin' ), 'variants' => array( '400' ) ),
 			array( 'name' => 'Bangers', 'subsets' => array( 'latin' ), 'variants' => array( '400' ) ),
 			array( 'name' => 'Basic', 'subsets' => array( 'latin-ext', 'latin' ), 'variants' => array( '400' ) ),
