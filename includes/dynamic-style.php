@@ -309,19 +309,40 @@ $total_header_height = $header_height;
 
 	<?php
 
-	$header_margin_left = '';
-	$header_margin_right = '';
+	$header_margin_left   = '';
+	$header_margin_right  = '';
 	$header_text_position = 'absolute';
+	$border_menu_size     = $titan->getOption( 'menu_items_border_size' );
 
 	if ( 'left' === $titan->getOption( 'header_text_align' ) ) {
 			$header_margin_left = 'margin-left:' . $titan->getOption( 'header_text_left_margin' ) . 'px;';
 	}
+
 	if ( 'right' === $titan->getOption( 'header_text_align' ) ) {
 		$header_margin_right = 'margin-right:' . $titan->getOption( 'header_text_right_margin' ) . 'px;';
 	}
+
 	if ( 'center' === $titan->getOption( 'header_text_align' ) ) {
 		$header_text_position = 'initial';
 	}
+
+	if ( $titan->getOption( 'enabled_sticky_header' ) ) {
+		$header_position = 'fixed';
+	} else {
+		$header_position = 'absolute';
+	}
+
+	if ( 0 < $border_menu_size ) { 
+		$border_menu_color = $titan->getOption( 'menu_items_border_color' );
+		$border_style      =  $border_menu_size . 'px solid ' . $border_menu_color; ?>
+
+		.mobmenu_content li, .rg {
+			border-top: <?php echo $border_style; ?>;
+		}
+
+	<?php
+	}
+
 	?>
 
 	.mob-menu-logo-holder {
@@ -337,7 +358,7 @@ $total_header_height = $header_height;
 		height: <?php echo $total_header_height; ?>px;
 		width: 100%;
 		font-weight:bold;
-		position:fixed;
+		position:<?php echo $header_position; ?>;
 		top:0px;	
 		right: 0px;
 		z-index: 99998;

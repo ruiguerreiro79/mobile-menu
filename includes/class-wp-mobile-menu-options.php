@@ -142,6 +142,18 @@ class WP_Mobile_Menu_options {
 				'default' => '',
 			) );
 
+			// Menu Border Style.
+			$general_tab->createOption( array(
+				'name'    => __( 'Menu Items Border Size', 'mobile-menu' ),
+				'id'      => 'menu_items_border_size',
+				'type'    => 'number',
+				'default' => '0',
+				'desc'    => __( 'Choose the size of the menu items border.<a href="/wp-admin/admin.php?page=mobile-menu-options&tab=colors" target="_blank">Click here</a> to adjust the color.', 'mobile-menu' ),
+				'max'     => '5',
+				'min'     => '0',
+				'unit'    => 'px',
+			) );
+
 			$general_tab->createOption( array(
 				'name' => __( 'Hide Original Menu/header', 'mobile-menu' ),
 				'type' => 'heading',
@@ -217,6 +229,17 @@ class WP_Mobile_Menu_options {
 			$header_tab->createOption( array(
 				'name' => __( 'Main options', 'mobile-menu' ),
 				'type' => 'heading',
+			) );
+
+			// Enable/Disable Sticky Header.
+			$header_tab->createOption( array(
+				'name'     => __( 'Sticky Header', 'mobile-menu' ),
+				'id'       => 'enabled_sticky_header',
+				'type'     => 'enable',
+				'default'  => true,
+				'desc'     => __( 'Choose if you want to have the Header Fixed or scrolling with the content.', 'mobile-menu' ),
+				'enabled'  => __( 'Yes', 'mobile-menu' ),
+				'disabled' => __( 'No', 'mobile-menu' ),
 			) );
 
 			// Enable/Disable Naked Header.
@@ -1031,6 +1054,16 @@ class WP_Mobile_Menu_options {
 			$colors_tab->createOption( array(
 				'name'    => __( 'Overlay Background Color', 'mobile-menu' ),
 				'id'      => 'overlay_bg_color',
+				'type'    => 'color',
+				'desc'    => '',
+				'alpha'   => true,
+				'default' => 'rgba(255,255,255,0.78)',
+			) );
+
+			// Menu Items Border color.
+			$colors_tab->createOption( array(
+				'name'    => __( 'Menu Items Border Color', 'mobile-menu' ),
+				'id'      => 'menu_items_border_color',
 				'type'    => 'color',
 				'desc'    => '',
 				'alpha'   => true,
