@@ -136,12 +136,11 @@ $total_header_height = $header_height;
 	.mobmenu_content h2, .mobmenu_content h3, .show-nav-left .mob-menu-copyright, .show-nav-left .mob-expand-submenu i {
 		color: <?php echo $titan->getOption( 'left_panel_text_color' ); ?>;
 	}
-
-	.mobmenu_content #mobmenuleft li:hover, .mobmenu_content #mobmenuright li:hover  {
+	.mobmenu_content #mobmenuleft > li > a:hover {
 		background-color: <?php echo $titan->getOption( 'left_panel_hover_bgcolor' ); ?>;
 	}
 
-	.mobmenu_content #mobmenuright li:hover  {
+	.mobmenu_content #mobmenuright > li > a:hover {
 		background-color: <?php echo $titan->getOption( 'right_panel_hover_bgcolor' ); ?>;
 	}
 	
@@ -152,9 +151,31 @@ $total_header_height = $header_height;
 		width: 100%;
 		position: initial;
 	}
+
+	/* 2nd Level Left Background Color on Hover */
+	.mobmenu_content #mobmenuleft .sub-menu li:hover {
+		background-color: <?php echo $titan->getOption( 'left_panel_2nd_level_bgcolor_hover' ); ?>;
+	}
+
+	/* 2nd Level Left Background Color on Hover */
+	.mobmenu_content #mobmenuleft .sub-menu li:hover a {
+		color: <?php echo $titan->getOption( 'left_panel_2nd_level_text_color_hover' ); ?>;
+	}
+	
+	/* 2nd Level Right Background Color on Hover */
+	.mobmenu_content #mobmenuright .sub-menu li:hover {
+		background-color: <?php echo $titan->getOption( 'right_panel_2nd_level_bgcolor_hover' ); ?>;
+	}
+
+	/* 2nd Level Right Background Color on Hover */
+	.mobmenu_content #mobmenuright .sub-menu li:hover a {
+		color: <?php echo $titan->getOption( 'right_panel_2nd_level_text_color_hover' ); ?>;
+	}
+
 	.mob-menu-left-panel .mob-cancel-button {
 		color: <?php echo $titan->getOption( 'left_panel_close_button_color' ); ?>;
 	}
+
 	.mob-menu-right-panel .mob-cancel-button {
 		color: <?php echo $titan->getOption( 'right_panel_close_button_color' ); ?>;
 	}
@@ -244,6 +265,46 @@ $total_header_height = $header_height;
 	/* 3rd Level Menu Items Padding */
 	.mobmenu .sub-menu .sub-menu li a {
 		padding-left: 75px;
+	}
+	
+	/* 3rd Level Left Menu Items Background color*/
+	.mobmenu_content #mobmenuleft .sub-menu  .sub-menu li a {
+		color: <?php echo $titan->getOption( 'left_panel_3rd_level_text_color' ); ?>;
+	}
+
+	/* 3rd Level Left Menu Items Background color on Hover*/
+	.mobmenu_content #mobmenuleft .sub-menu  .sub-menu li a:hover {
+		color: <?php echo $titan->getOption( 'left_panel_3rd_level_text_color_hover' ); ?>;
+	}
+
+	/* 3rd Level Left Menu Items Background color*/
+	.mobmenu_content #mobmenuleft .sub-menu .sub-menu li {
+		background-color: <?php echo $titan->getOption( 'left_panel_3rd_level_bgcolor' ); ?>;
+	}
+
+	/* 3rd Level Left Menu Items Background color on Hover*/
+	.mobmenu_content #mobmenuleft .sub-menu .sub-menu li:hover {
+		background-color: <?php echo $titan->getOption( 'left_panel_3rd_level_bgcolor_hover' ); ?>;
+	}
+
+	/* 3rd Level Right Menu Items Background color*/
+	.mobmenu_content #mobmenuright .sub-menu  .sub-menu li a {
+		color: <?php echo $titan->getOption( 'right_panel_3rd_level_text_color' ); ?>;		
+	}
+
+	/* 3rd Level Right Menu Items Background color*/
+	.mobmenu_content #mobmenuright .sub-menu .sub-menu li {
+		background-color: <?php echo $titan->getOption( 'right_panel_3rd_level_bgcolor' ); ?>;
+	}
+
+	/* 3rd Level Right Menu Items Background color on Hover*/
+	.mobmenu_content #mobmenuright .sub-menu .sub-menu li:hover {
+		background-color: <?php echo $titan->getOption( 'right_panel_3rd_level_bgcolor_hover' ); ?>;
+	}
+
+	/* 3rd Level Right Menu Items Background color on Hover*/
+	.mobmenu_content #mobmenuright .sub-menu  .sub-menu li a:hover {
+		color: <?php echo $titan->getOption( 'right_panel_3rd_level_text_color_hover' ); ?>;
 	}
 
 	<?php

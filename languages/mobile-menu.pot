@@ -1084,7 +1084,7 @@ msgstr ""
 
 #: includes/class-wp-mobile-menu-options.php:1870
 #: includes/class-wp-mobile-menu-options.php:1960
-msgid "Submenu Background Color"
+msgid "2nd Level Background Color"
 msgstr ""
 
 #: includes/class-wp-mobile-menu-options.php:1880

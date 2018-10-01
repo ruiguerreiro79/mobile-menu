@@ -49,22 +49,22 @@ class WP_Mobile_Menu_options {
 
 			// Create Header Options panel.
 			$header_tab = $panel->createTab( array(
-				'name' => __( 'Header options', 'mobile-menu' ),
+				'name' => __( 'Header', 'mobile-menu' ),
 			) );
 
 			// Create Left Menu Options panel.
 			$left_menu_tab = $panel->createTab( array(
-				'name' => __( 'Left Menu options', 'mobile-menu' ),
+				'name' => __( 'Left Menu', 'mobile-menu' ),
 			) );
 
 			// Create Right Menu Options panel.
 			$right_menu_tab = $panel->createTab( array(
-				'name' => __( 'Right Menu options', 'mobile-menu' ),
+				'name' => __( 'Right Menu', 'mobile-menu' ),
 			) );
 
 			// Create Color Options panel.
 			$colors_tab = $panel->createTab( array(
-				'name' => __( 'Color Options', 'mobile-menu' ),
+				'name' => __( 'Colors', 'mobile-menu' ),
 			) );
 
 			// Create Documentation panel.
@@ -1037,6 +1037,12 @@ class WP_Mobile_Menu_options {
 				'default' => 'rgba(0, 0, 0, 0.83)',
 			) );
 
+			// Header Left Menu Section.
+			$colors_tab->createOption( array(
+				'name' => __( 'Header Colors', 'mobile-menu' ),
+				'type' => 'heading',
+			) );
+
 			// Header Background color.
 			$colors_tab->createOption( array(
 				'name'    => __( 'Header Background Color', 'mobile-menu' ),
@@ -1083,6 +1089,16 @@ class WP_Mobile_Menu_options {
 				'default' => '#222',
 			) );
 
+			// Left Panel Close Button Color.
+			$colors_tab->createOption( array(
+				'name'    => __( 'Close Button Color', 'mobile-menu' ),
+				'id'      => 'left_panel_close_button_color',
+				'type'    => 'color',
+				'desc'    => '',
+				'alpha'   => true,
+				'default' => '#000',
+			) );
+
 			// Left Panel Background color.
 			$colors_tab->createOption( array(
 				'name'    => __( 'Background Color', 'mobile-menu' ),
@@ -1123,9 +1139,16 @@ class WP_Mobile_Menu_options {
 				'default' => get_option( 'mobmenu_opt_left_text_color_hover', '#fff' ),
 			) );
 
-			// Left Panel Sub-menu Background Color.
+
+			// 2nd Level Left Menu Section.
 			$colors_tab->createOption( array(
-				'name'    => __( 'Submenu Background Color', 'mobile-menu' ),
+				'name' => __( 'Left 2nd Level Menu Colors', 'mobile-menu' ),
+				'type' => 'heading',
+			) );
+
+			// Left Panel 2nd Level Background Color.
+			$colors_tab->createOption( array(
+				'name'    => __( '2nd Level Background Color', 'mobile-menu' ),
 				'id'      => 'left_panel_submenu_bgcolor',
 				'type'    => 'color',
 				'desc'    => '',
@@ -1135,7 +1158,7 @@ class WP_Mobile_Menu_options {
 
 			// Left Panel Sub-menu Text Color.
 			$colors_tab->createOption( array(
-				'name'    => __( 'Submenu Text Color', 'mobile-menu' ),
+				'name'    => __( '2nd Level Text Color', 'mobile-menu' ),
 				'id'      => 'left_panel_submenu_text_color',
 				'type'    => 'color',
 				'desc'    => '',
@@ -1143,14 +1166,70 @@ class WP_Mobile_Menu_options {
 				'default' => get_option( 'mobmenu_opt_left_submenu_text_color', '#222' ),
 			) );
 
-			// Left Panel Close Button Color.
+			// Left Panel 2nd Level Background Color Hover.
 			$colors_tab->createOption( array(
-				'name'    => __( 'Close Button Color', 'mobile-menu' ),
-				'id'      => 'left_panel_close_button_color',
+				'name'    => __( '2nd Level Background Color Hover', 'mobile-menu' ),
+				'id'      => 'left_panel_2nd_level_bgcolor_hover',
 				'type'    => 'color',
 				'desc'    => '',
 				'alpha'   => true,
-				'default' => '#000',
+				'default' => '#eff1f1',
+			) );
+
+			// Left Panel 2nd Level Text Color Hover.
+			$colors_tab->createOption( array(
+				'name'    => __( '2nd Level Text Color Hover', 'mobile-menu' ),
+				'id'      => 'left_panel_2nd_level_text_color_hover',
+				'type'    => 'color',
+				'desc'    => '',
+				'alpha'   => true,
+				'default' => '#222',
+			) );
+
+			// 3rd Level Left Menu Section.
+			$colors_tab->createOption( array(
+				'name' => __( 'Left 3rd Level Menu Colors', 'mobile-menu' ),
+				'type' => 'heading',
+			) );
+
+			// Left Panel 3rd Level Background Color Hover.
+			$colors_tab->createOption( array(
+				'name'    => __( '3rd Level Background Color', 'mobile-menu' ),
+				'id'      => 'left_panel_3rd_level_bgcolor',
+				'type'    => 'color',
+				'desc'    => '',
+				'alpha'   => true,
+				'default' => '#eff1f1',
+			) );
+
+			// Left Panel 3rd Level Text Color Hover.
+			$colors_tab->createOption( array(
+				'name'    => __( '3rd Level Text Color', 'mobile-menu' ),
+				'id'      => 'left_panel_3rd_level_text_color',
+				'type'    => 'color',
+				'desc'    => '',
+				'alpha'   => true,
+				'default' => '#222',
+			) );
+
+			// Left Panel 3rd Level Background Color Hover.
+			$colors_tab->createOption( array(
+				'name'    => __( '3rd Level Background Color Hover', 'mobile-menu' ),
+				'id'      => 'left_panel_3rd_level_bgcolor_hover',
+				'type'    => 'color',
+				'desc'    => '',
+				'alpha'   => true,
+				'default' => '#eff1f1',
+			) );
+
+			// Left Panel 3rd Level Text Color Hover.
+			$colors_tab->createOption( array(
+				'name'    => __( '3rd Level Text Color Hover', 'mobile-menu' ),
+				'id'      => 'left_panel_3rd_level_text_color_hover',
+				'type'    => 'color',
+				'desc'    => '',
+				'alpha'   => true,
+				'default' => '#222',
 			) );
 
 			// Header Right Menu Section.
@@ -1179,6 +1258,16 @@ class WP_Mobile_Menu_options {
 				'default' => '#222',
 			) );
 
+			// Right Panel Close Button Color.
+			$colors_tab->createOption( array(
+				'name'    => __( 'Close Button Color', 'mobile-menu' ),
+				'id'      => 'right_panel_close_button_color',
+				'type'    => 'color',
+				'desc'    => '',
+				'alpha'   => true,
+				'default' => '#000',
+			) );
+
 			// Right Panel Background color.
 			$colors_tab->createOption( array(
 				'name'    => __( 'Background Color', 'mobile-menu' ),
@@ -1187,16 +1276,6 @@ class WP_Mobile_Menu_options {
 				'desc'    => '',
 				'alpha'   => true,
 				'default' => get_option( 'mobmenu_opt_right_menu_bgcolor', '#f9f9f9' ),
-			) );
-
-			// Right Panel Text color.
-			$colors_tab->createOption( array(
-				'name'    => __( 'Text Color', 'mobile-menu' ),
-				'id'      => 'right_panel_text_color',
-				'type'    => 'color',
-				'desc'    => '',
-				'alpha'   => true,
-				'default' => get_option( 'mobmenu_opt_right_text_color', '#222' ),
 			) );
 
 			// Right Panel Background Hover Color.
@@ -1209,6 +1288,16 @@ class WP_Mobile_Menu_options {
 				'default' => get_option( 'mobmenu_opt_right_bg_color_hover', '#a3d3e8' ),
 			) );
 
+			// Right Panel Text color.
+			$colors_tab->createOption( array(
+				'name'    => __( 'Text Color', 'mobile-menu' ),
+				'id'      => 'right_panel_text_color',
+				'type'    => 'color',
+				'desc'    => '',
+				'alpha'   => true,
+				'default' => get_option( 'mobmenu_opt_right_text_color', '#222' ),
+			) );
+
 			// Right Panel Text color Hover.
 			$colors_tab->createOption( array(
 				'name'    => __( 'Hover Text Color', 'mobile-menu' ),
@@ -1219,9 +1308,15 @@ class WP_Mobile_Menu_options {
 				'default' => get_option( 'mobmenu_opt_right_text_color_hover', '#fff' ),
 			) );
 
-			// Right Panel Sub-menu Background Color.
+			// Header Right Menu Section.
 			$colors_tab->createOption( array(
-				'name'    => __( 'Submenu Background Color', 'mobile-menu' ),
+				'name' => __( 'Right 2nd Level Menu Colors', 'mobile-menu' ),
+				'type' => 'heading',
+			) );
+
+			// Right Panel 2nd Level Background Color.
+			$colors_tab->createOption( array(
+				'name'    => __( '2nd Level Background Color', 'mobile-menu' ),
 				'id'      => 'right_panel_submenu_bgcolor',
 				'type'    => 'color',
 				'desc'    => '',
@@ -1229,9 +1324,9 @@ class WP_Mobile_Menu_options {
 				'default' => get_option( 'mobmenu_opt_right_submenu_bg_color', '#eff1f1' ),
 			) );
 
-			// Right Panel Sub-menu Text Color.
+			// Right Panel 2nd Level Text Color.
 			$colors_tab->createOption( array(
-				'name'    => __( 'Submenu Text Color', 'mobile-menu' ),
+				'name'    => __( '2nd Level Text Color', 'mobile-menu' ),
 				'id'      => 'right_panel_submenu_text_color',
 				'type'    => 'color',
 				'desc'    => '',
@@ -1239,14 +1334,70 @@ class WP_Mobile_Menu_options {
 				'default' => get_option( 'mobmenu_opt_right_submenu_text_color', '#222' ),
 			) );
 
-			// Right Panel Close Button Color.
+			// Right Panel 2nd Level Background Color Hover.
 			$colors_tab->createOption( array(
-				'name'    => __( 'Close Button Color', 'mobile-menu' ),
-				'id'      => 'right_panel_close_button_color',
+				'name'    => __( '2nd Level Background Color Hover', 'mobile-menu' ),
+				'id'      => 'right_panel_2nd_level_bgcolor_hover',
 				'type'    => 'color',
 				'desc'    => '',
 				'alpha'   => true,
-				'default' => '#000',
+				'default' => '#eff1f1',
+			) );
+
+			// Right Panel 3rd Level Text Color Hover.
+			$colors_tab->createOption( array(
+				'name'    => __( '2nd Level Text Color Hover', 'mobile-menu' ),
+				'id'      => 'right_panel_2nd_level_text_color_hover',
+				'type'    => 'color',
+				'desc'    => '',
+				'alpha'   => true,
+				'default' => '#222',
+			) );
+
+			// Header Right Menu Section.
+			$colors_tab->createOption( array(
+				'name' => __( 'Right 3rd Level Menu Colors', 'mobile-menu' ),
+				'type' => 'heading',
+			) );
+
+			// Right Panel 3rd Level Background Color.
+			$colors_tab->createOption( array(
+				'name'    => __( '3rd Level Background Color', 'mobile-menu' ),
+				'id'      => 'right_panel_3rd_level_bgcolor',
+				'type'    => 'color',
+				'desc'    => '',
+				'alpha'   => true,
+				'default' => '#eff1f1',
+			) );
+
+			// Right Panel 3rd Level Text Color.
+			$colors_tab->createOption( array(
+				'name'    => __( '3rd Level Text Color', 'mobile-menu' ),
+				'id'      => 'right_panel_3rd_level_text_color',
+				'type'    => 'color',
+				'desc'    => '',
+				'alpha'   => true,
+				'default' => get_option( 'mobmenu_opt_right_submenu_text_color', '#222' ),
+			) );
+
+			// Right Panel 3rd Level Background Color Hover.
+			$colors_tab->createOption( array(
+				'name'    => __( '3rd Level Background Color Hover', 'mobile-menu' ),
+				'id'      => 'right_panel_3rd_level_bgcolor_hover',
+				'type'    => 'color',
+				'desc'    => '',
+				'alpha'   => true,
+				'default' => '#eff1f1',
+			) );
+
+			// Right Panel 3rd Level Text Color Hover.
+			$colors_tab->createOption( array(
+				'name'    => __( '3rd Level Text Color Hover', 'mobile-menu' ),
+				'id'      => 'right_panel_3rd_level_text_color_hover',
+				'type'    => 'color',
+				'desc'    => '',
+				'alpha'   => true,
+				'default' => '#222',
 			) );
 
 			$panel->createOption( array(

@@ -236,6 +236,54 @@ td.second.tf-select .select2 {
 .tf-font .wp-picker-container {
     display: none;
 }
+
+.tf-sortable li {
+    width: 15%;
+    float: left;
+}
+.tf-sortable ul li i.dashicons-menu{
+    display: none!important;
+}
+.tf-sortable ul{
+    width: 100%;
+}
+.tf-sortable ul li i:last-of-type{
+    margin-left: 0px!important;
+}
+.tf-font .wp-picker-container {
+    display: none;
+}
+.active-tab-colors .form-table tr {
+    width: 50%;
+    float: left;
+}
+.active-tab-colors .form-table th {
+    width: 100vh;
+}
+.active-tab-colors tr.even.first.tf-heading {
+    width: 100%;
+    background: #f4f4f4;
+}
+.tf-heading th.first.last h3 {
+    color: #f3c030;
+}
+.titan-framework-panel-wrap .tf-heading th {
+    background: none repeat scroll 0 0 #36373c!important;
+    width: 100vw;
+}
+.titan-framework-panel-wrap .nav-tab-active, .titan-framework-panel-wrap .nav-tab-active:hover {
+    background: #f3c030!important;
+    border-bottom: 1px solid #f3c030!important;
+}
+td.second.tf-multicheck-pages fieldset {
+    max-height: 500px;
+    height: 500px;
+    overflow: scroll;
+}
+.active-tab-colors th {
+    border: none!important;
+}
+
 #fs_connect .fs-visual .fs-plugin-icon, #fs_connect .fs-visual .fs-connect-logo, #fs_connect .fs-visual .fs-site-icon {
     border: none!important;
 }
