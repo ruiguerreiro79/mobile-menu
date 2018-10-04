@@ -14,7 +14,7 @@
     
    (function ($) {
       jQuery( document ).ready( function() {
-  
+
         jQuery( document ).on( 'click', '.show-nav-right .mobmenu-push-wrap,  .show-nav-right .mobmenu-overlay', function ( e ) { 
   
           e.preventDefault();
@@ -117,48 +117,48 @@
             if ( jQuery( this ).hasClass( 'mob-cancel-button') || jQuery( this ).hasClass( 'mobmenu-right-bt' ) ) {
                 return false;
             }
-  
+
           } else {
             jQuery( 'html' ).addClass( 'hidden-overflow' );
             e.preventDefault();
           }
-  
+
         });
-  
+        var submenu_open_icon  = jQuery( '.mob-menu-header-holder' ).attr( 'data-open-icon' );
+        var submenu_close_icon = jQuery( '.mob-menu-header-holder' ).attr( 'data-close-icon' );
         jQuery( '.mobmenu_content .sub-menu' ).each( function(){
-          
-          jQuery( this ).before('<div class="mob-expand-submenu"><i class="mob-icon-down-open"></i><i class="mob-icon-up-open hide"></i></div>');
+
+          jQuery( this ).before('<div class="mob-expand-submenu"><i class="mob-icon-' + submenu_open_icon + ' open-icon"></i><i class="mob-icon-' + submenu_close_icon + ' close-icon hide"></i></div>');
   
         });
-          
+
         jQuery( document ).on( 'click', '.mob-expand-submenu' , function ( e ) {
   
           e.stopPropagation();
-              
+
           if ( jQuery( this ).next().hasClass( 'show-sub-menu' )  ) {
             jQuery(this).find('.show-sub-menu' ).hide();
           }
           if ( ! jQuery( this ).parents('.show-sub-menu').prev().hasClass('mob-expand-submenu') && jQuery( this ).next()[0] !== jQuery('.show-sub-menu')[0] && jQuery( this ).parent('.sub-menu').length <= 0 ) {
-            jQuery(this).find('.mob-icon-down-open').removeClass('hide');
-            jQuery(this).find('.mob-icon-up-open').addClass('hide');
+            jQuery(this).find('.open-icon').removeClass('hide');
+            jQuery(this).find('.close-icon').addClass('hide');
             jQuery(this).find( '.show-submenu' ).hide().toggleClass( 'show-sub-menu' );
             
           }
-          
-          jQuery( this ).find('.mob-icon-down-open').toggleClass('hide');
-          jQuery( this ).find('.mob-icon-up-open').toggleClass('hide');
+
+          jQuery( this ).find('.open-icon').toggleClass('hide');
+          jQuery( this ).find('.close-icon').toggleClass('hide');
           
           if ( !jQuery( this ).next().hasClass( 'show-sub-menu' ) ) {  
-            jQuery(this).next().fadeIn( 'slow' );   
-          } else {  
-            jQuery(this).next().hide();   
+            jQuery(this).next().fadeIn( 'slow' );
+          } else {
+            jQuery(this).next().hide();
           }
   
           jQuery(this).next().toggleClass( 'show-sub-menu');
-          
+
         });
-  
-        
+
         $('.mobmenu a[href*="#"]')
     // Remove links that don't actually link to anything
     .not('[href="#"]')

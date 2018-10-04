@@ -171,6 +171,9 @@ $total_header_height = $header_height;
 	.mobmenu_content #mobmenuright .sub-menu li:hover a {
 		color: <?php echo $titan->getOption( 'right_panel_2nd_level_text_color_hover' ); ?>;
 	}
+	.mob-cancel-button {
+		font-size: <?php echo $titan->getOption( 'close_icon_font_size' ); ?>px!important;
+	}
 
 	.mob-menu-left-panel .mob-cancel-button {
 		color: <?php echo $titan->getOption( 'left_panel_close_button_color' ); ?>;
@@ -179,6 +182,7 @@ $total_header_height = $header_height;
 	.mob-menu-right-panel .mob-cancel-button {
 		color: <?php echo $titan->getOption( 'right_panel_close_button_color' ); ?>;
 	}
+
 	.mob-menu-slideout-over .mobmenu_content {
 		padding-top: 40px;
 	}
@@ -309,10 +313,11 @@ $total_header_height = $header_height;
 
 	<?php
 
-	$header_margin_left   = '';
-	$header_margin_right  = '';
-	$header_text_position = 'absolute';
-	$border_menu_size     = $titan->getOption( 'menu_items_border_size' );
+	$header_margin_left     = '';
+	$header_margin_right    = '';
+	$header_text_position   = 'absolute';
+	$border_menu_size       = $titan->getOption( 'menu_items_border_size' );
+	$submenu_open_icon_font = $titan->getOption( 'submenu_open_icon_font' );
 
 	if ( 'left' === $titan->getOption( 'header_text_align' ) ) {
 			$header_margin_left = 'margin-left:' . $titan->getOption( 'header_text_left_margin' ) . 'px;';
@@ -826,6 +831,7 @@ $total_header_height = $header_height;
 		position: relative;
 		font-weight: 600;
 		cursor: pointer;
+		font-size: <?php echo $titan->getOption( 'submenu_icon_font_size' ); ?>px;
 	}
 
 	<?php echo  $default_elements; ?> {

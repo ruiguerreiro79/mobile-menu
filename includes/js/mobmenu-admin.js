@@ -17,11 +17,16 @@
         //Hide deprecated field.
         jQuery( '#mobmenu_header_font_size' ).parent().parent().hide();
         jQuery( '#mobmenu_enabled_logo' ).parent().parent().hide();
-      
-        if( $( '.mobmenu-icon-holder' ).parent().find('input').length ) {
-            var icon_key = $( '.mobmenu-icon-holder' ).parent().find('input').val();
-            $( '.mobmenu-icon-holder' ).html( '<span class="mobmenu-item mob-icon-' + icon_key + '" data-icon-key="' + icon_key + '"></span>');             
-        }
+
+        var icon_key;
+
+        $( '.mobmenu-icon-holder' ).each( function() {
+
+            if ( $( this ).parent().find('input').length) {
+                icon_key = $( this ).parent().find('input').val();
+                $( this ).html( '<span class="mobmenu-item mob-icon-' + icon_key + '" data-icon-key="' + icon_key + '"></span>');
+            }
+        });
 
         $( document ).on( "click", ".mobmenu-close-overlay" , function () {
         
@@ -62,9 +67,11 @@
         $( document ).on( "click", ".toplevel_page_mobile-menu-options #mobmenu-modal-body .mobmenu-item" , function() {
             
             var icon_key = $( this ).attr( "data-icon-key" );
-            $( ".mobmenu-icon-holder" ).html( '<span class="mobmenu-item mob-icon-' + icon_key + '" data-icon-key="' + icon_key + '"></span>');
+            $( ".mobmenu-icon-holder.selected-option" ).html( '<span class="mobmenu-item mob-icon-' + icon_key + '" data-icon-key="' + icon_key + '"></span>');
             $( ".mobmenu-close-overlay" ).trigger( "click" );
-            $( ".mobmenu-icon-holder" ).parent().find('input').val( icon_key );
+            $( ".mobmenu-icon-holder.selected-option" ).parent().find('input').val( icon_key );
+            $( ".mobmenu-icon-holder.selected-option" ).removeClass( 'selected-option' );
+            
 
         });
 
@@ -142,11 +149,13 @@
     $( document ).on( "click", ".mobmenu-icon-picker" , function( e ) {
           
           e.preventDefault();
-        
+
           var full_content = '';
           var selected_icon = '';
           var menu_id = 0;
           var id = 0;
+
+          jQuery( this ).prev().addClass( 'selected-option' );
                
           if (  $( ".mobmenu-icons-overlay" ).length ) {
                 full_content = 'no';                                    

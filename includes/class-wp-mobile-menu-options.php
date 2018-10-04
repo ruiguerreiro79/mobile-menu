@@ -80,7 +80,7 @@ class WP_Mobile_Menu_options {
 
 			// Width trigger.
 			$general_tab->createOption( array(
-				'name'    => __( 'Mobile Menu Visible below this resolution(Width Trigger)', 'mobile-menu' ),
+				'name'    => __( 'Mobile Menu Display Rules( Width Trigger )', 'mobile-menu' ),
 				'id'      => 'width_trigger',
 				'type'    => 'number',
 				'desc'    => __( 'The Mobile menu will appear below this screen resolution. Place it at 5000 to be always visible. ', 'mobile-menu' ),
@@ -132,28 +132,6 @@ class WP_Mobile_Menu_options {
 				'disabled' => __( 'Off', 'mobile-menu' ),
 			) );
 
-			// Menu Display Type that set's the type of animation when the menu opens.
-			$general_tab->createOption( array(
-				'name'    => __( 'Menu Display Type', 'mobile-menu' ),
-				'id'      => 'menu_display_type',
-				'type'    => 'select',
-				'desc'    => __( 'Choose the display type for the mobile menu.', 'mobile-menu' ),
-				'options' => $display_type,
-				'default' => '',
-			) );
-
-			// Menu Border Style.
-			$general_tab->createOption( array(
-				'name'    => __( 'Menu Items Border Size', 'mobile-menu' ),
-				'id'      => 'menu_items_border_size',
-				'type'    => 'number',
-				'default' => '0',
-				'desc'    => __( 'Choose the size of the menu items border.<a href="/wp-admin/admin.php?page=mobile-menu-options&tab=colors" target="_blank">Click here</a> to adjust the color.', 'mobile-menu' ),
-				'max'     => '5',
-				'min'     => '0',
-				'unit'    => 'px',
-			) );
-
 			$general_tab->createOption( array(
 				'name' => __( 'Hide Original Menu/header', 'mobile-menu' ),
 				'type' => 'heading',
@@ -191,6 +169,84 @@ class WP_Mobile_Menu_options {
 
 				),
 				'default' => array( '1', '2', '3', '4', '5', '6', '7', '8' ),
+			) );
+
+			$general_tab->createOption( array(
+				'name' => __( 'Miscelaneous Options', 'mobile-menu' ),
+				'type' => 'heading',
+			) );
+
+			// Menu Display Type that set's the type of animation when the menu opens.
+			$general_tab->createOption( array(
+				'name'    => __( 'Menu Display Type', 'mobile-menu' ),
+				'id'      => 'menu_display_type',
+				'type'    => 'select',
+				'desc'    => __( 'Choose the display type for the mobile menu.', 'mobile-menu' ),
+				'options' => $display_type,
+				'default' => '',
+			) );
+
+			// Menu Border Style.
+			$general_tab->createOption( array(
+				'name'    => __( 'Menu Items Border Size', 'mobile-menu' ),
+				'id'      => 'menu_items_border_size',
+				'type'    => 'number',
+				'default' => '0',
+				'desc'    => __( 'Choose the size of the menu items border.<a href="/wp-admin/admin.php?page=mobile-menu-options&tab=colors" target="_blank">Click here</a> to adjust the color.', 'mobile-menu' ),
+				'max'     => '5',
+				'min'     => '0',
+				'unit'    => 'px',
+			) );
+
+			// Close Menu Icon Font.
+			$general_tab->createOption( array(
+				'name'    => __( 'Close Icon', 'mobile-menu' ),
+				'id'      => 'close_icon_font',
+				'type'    => 'text',
+				'desc'    => __( '<div class="mobmenu-icon-holder"></div><a href="#" class="mobmenu-icon-picker button">Select menu icon</a>', 'mobile-menu' ),
+				'default' => 'cancel-1',
+			) );
+
+			// Close Menu Icon Font Size.
+			$general_tab->createOption( array(
+				'name'    => __( 'Close Icon Font Size', 'mobile-menu' ),
+				'id'      => 'close_icon_font_size',
+				'type'    => 'number',
+				'desc'    => __( 'Enter the Close Icon Font Size', 'mobile-menu' ),
+				'default' => '30',
+				'max'     => '100',
+				'min'     => '0',
+				'unit'    => 'px',
+			) );
+
+			// Submenu Open Icon Font.
+			$general_tab->createOption( array(
+				'name'    => __( 'Submenu Open Icon', 'mobile-menu' ),
+				'id'      => 'submenu_open_icon_font',
+				'type'    => 'text',
+				'desc'    => __( '<div class="mobmenu-icon-holder"></div><a href="#" class="mobmenu-icon-picker button">Select menu icon</a>', 'mobile-menu' ),
+				'default' => 'down-open',
+			) );
+
+			// Submenu Close Icon Font.
+			$general_tab->createOption( array(
+				'name'    => __( 'Submenu Close Icon', 'mobile-menu' ),
+				'id'      => 'submenu_close_icon_font',
+				'type'    => 'text',
+				'desc'    => __( '<div class="mobmenu-icon-holder"></div><a href="#" class="mobmenu-icon-picker button">Select menu icon</a>', 'mobile-menu' ),
+				'default' => 'up-open',
+			) );
+
+			// Submenu Icon Font Size.
+			$general_tab->createOption( array(
+				'name'    => __( 'Submenu Icon Font Size', 'mobile-menu' ),
+				'id'      => 'submenu_icon_font_size',
+				'type'    => 'number',
+				'desc'    => __( 'Enter the Submenu Icon Font Size', 'mobile-menu' ),
+				'default' => '30',
+				'max'     => '100',
+				'min'     => '0',
+				'unit'    => 'px',
 			) );
 
 			$general_tab->createOption( array(

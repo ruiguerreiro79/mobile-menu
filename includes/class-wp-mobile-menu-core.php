@@ -74,6 +74,8 @@ class WP_Mobile_Menu_Core {
 	 * Build the icons HTML.
 	 */
 	public function get_icons_html() {
+		$menu_title = '';
+
 		if ( isset( $_POST['menu_item_id'] ) ) {
 			$menu_item_id = absint( $_POST['menu_item_id'] );
 		}
@@ -132,8 +134,11 @@ class WP_Mobile_Menu_Core {
 		$output                        = '';
 		$logo_content                  = '';
 		$output                       .= '<div class="mobmenu-overlay"></div>';
+		$close_icon                    = $titan->getOption( 'close_icon_font' );
+		$submenu_open_icon_font        = $titan->getOption( 'submenu_open_icon_font' );
+		$submenu_close_icon_font       = $titan->getOption( 'submenu_close_icon_font' );
+		$header_text                   = $titan->getOption( 'header_text' );
 
-		$header_text = $titan->getOption( 'header_text' );
 		if ( '' === $header_text ) {
 			$header_text = get_bloginfo();
 		}
@@ -143,7 +148,7 @@ class WP_Mobile_Menu_Core {
 			$sticky_el_data_detach = 'data-detach-el="' . $titan->getOption( 'sticky_elements' ) . '"';
 		}
 
-		$output .= '<div class="mob-menu-header-holder mobmenu" ' . $sticky_el_data_detach . '>';
+		$output .= '<div class="mob-menu-header-holder mobmenu" ' . $sticky_el_data_detach . ' data-open-icon="' . $submenu_open_icon_font . '" data-close-icon="' . $submenu_close_icon_font . '">';
 
 		$display_type = $titan->getOption( 'menu_display_type' );
 
@@ -176,9 +181,9 @@ class WP_Mobile_Menu_Core {
 			$left_icon_image = $left_icon_image[0];
 
 			if ( ! $titan->getOption( 'left_menu_icon_opt' ) || '' === $left_icon_image ) {
-				$left_menu_content .= '<i class="mob-icon-' . $titan->getOption( 'left_menu_icon_font' ) . ' mob-menu-icon"></i><i class="mob-icon-cancel mob-cancel-button"></i>';
+				$left_menu_content .= '<i class="mob-icon-' . $titan->getOption( 'left_menu_icon_font' ) . ' mob-menu-icon"></i><i class="mob-icon-' . $close_icon . ' mob-cancel-button"></i>';
 			} else {
-				$left_menu_content .= '<img src="' . $left_icon_image . '" alt="' . __( 'Left Menu Icon', 'mobile-menu' ) . '"><i class="mob-icon-cancel mob-cancel-button"></i>';
+				$left_menu_content .= '<img src="' . $left_icon_image . '" alt="' . __( 'Left Menu Icon', 'mobile-menu' ) . '"><i class="mob-icon-' . $close_icon . ' mob-cancel-button"></i>';
 			}
 
 			$left_menu_content .= $left_menu_text;
@@ -219,9 +224,9 @@ class WP_Mobile_Menu_Core {
 			$right_icon_image = $right_icon_image[0];
 
 			if ( ! $titan->getOption( 'right_menu_icon_opt' ) || '' === $right_icon_image ) {
-				$right_menu_content .= '<i class="mob-icon-' . $titan->getOption( 'right_menu_icon_font' ) . ' mob-menu-icon"></i><i class="mob-icon-cancel mob-cancel-button"></i>';
+				$right_menu_content .= '<i class="mob-icon-' . $titan->getOption( 'right_menu_icon_font' ) . ' mob-menu-icon"></i><i class="mob-icon-' . $close_icon . ' mob-cancel-button"></i>';
 			} else {
-				$right_menu_content .= '<img src="' . $right_icon_image . '" alt="' . __( 'Right Menu Icon', 'mobile-menu' ) . '"><i class="mob-icon-cancel mob-cancel-button"></i>';
+				$right_menu_content .= '<img src="' . $right_icon_image . '" alt="' . __( 'Right Menu Icon', 'mobile-menu' ) . '"><i class="mob-icon-' . $close_icon . ' mob-cancel-button"></i>';
 			}
 
 			$right_menu_content .= $right_menu_text;
@@ -248,7 +253,7 @@ class WP_Mobile_Menu_Core {
 			?>
 
 			<div class="mob-menu-left-panel mobmenu <?php echo $mobmenu_parent_link; ?> <?php echo $mobmenu_parent_link_2nd_level; ?>">
-				<a href="#" class="mobmenu-left-bt"><i class="mob-icon-cancel mob-cancel-button"></i></a>
+				<a href="#" class="mobmenu-left-bt"><i class="mob-icon-<?php echo $close_icon; ?> mob-cancel-button"></i></a>
 				<div class="mobmenu_content">
 			<?php
 
@@ -524,9 +529,6 @@ class WP_Mobile_Menu_Core {
 			'menu-3',
 			'menu-1',
 			'menu-outline',
-			'plus',
-			'plus-outline',
-			'plus-1',
 			'user',
 			'user-1',
 			'star',
@@ -535,6 +537,7 @@ class WP_Mobile_Menu_Core {
 			'ok',
 			'ok-1',
 			'cancel',
+			'cancel-2',
 			'cancel-circled',
 			'cancel-circled2',
 			'cancel-circle',
@@ -547,7 +550,23 @@ class WP_Mobile_Menu_Core {
 			'tumblr',
 			'linkedin',
 			'instagram',
-
+			'plus',
+			'plus-outline',
+			'plus-1',
+			'minus',
+			'minus-1',
+			'icon-plus-2',
+			'minus-2',
+			'down-open',
+			'icon-up-open-big',
+			'down-dir',
+			'left-dir',
+			'right-dir',
+			'up-dir',
+			'left-open',
+			'right-open',
+			'up-open-2',
+			'down-open-2',
 
 		);
 		return $icons_base;
