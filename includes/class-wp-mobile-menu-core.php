@@ -119,6 +119,18 @@ class WP_Mobile_Menu_Core {
 	}
 
 	/**
+	 * Register the Mobile Menus.
+	 */
+	public function register_menus() {
+		register_nav_menus(
+			array(
+				'left-wp-mobile-menu'  => __( 'Left Mobile Menu' , 'mob-menu-lang' ),
+				'right-wp-mobile-menu' => __( 'Right Mobile Menu' , 'mob-menu-lang' ),
+			)
+		);
+	}
+
+	/**
 	 * Build the WP Mobile Menu Html Markup.
 	 */
 	public function load_menu_html_markup() {
@@ -275,11 +287,11 @@ class WP_Mobile_Menu_Core {
 			if ( '' !== $current_left_menu ) {
 				// Display the left menu.
 				wp_nav_menu( array(
-					'menu'        => $current_left_menu,
-					'items_wrap'  => '<ul id="mobmenuleft">%3$s</ul>',
-					'fallback_cb' => false,
-					'depth'       => 3,
-					'walker'      => new WP_Mobile_Menu_Walker_Nav_Menu( 'left' ),
+					'theme_location' => 'left-wp-mobile-menu',
+					'items_wrap'     => '<ul id="mobmenuleft">%3$s</ul>',
+					'fallback_cb'    => false,
+					'depth'          => 3,
+					'walker'         => new WP_Mobile_Menu_Walker_Nav_Menu( 'left' ),
 				) );
 			}else {
 				echo "<span class='no-menu-assigned'>Assign a menu in the Left Menu options.</span>";
@@ -335,11 +347,12 @@ class WP_Mobile_Menu_Core {
 
 		// Display the right menu.
 			wp_nav_menu( array(
-				'menu'        => $current_right_menu,
-				'items_wrap'  => '<ul id="mobmenuright">%3$s</ul>',
-				'fallback_cb' => false,
-				'depth'       => 3,
-				'walker'      => new WP_Mobile_Menu_Walker_Nav_Menu( 'right' ),
+				//'menu'           => $current_right_menu,
+				'theme_location' => 'right-wp-mobile-menu',
+				'items_wrap'     => '<ul id="mobmenuright">%3$s</ul>',
+				'fallback_cb'    => false,
+				'depth'          => 3,
+				'walker'         => new WP_Mobile_Menu_Walker_Nav_Menu( 'right' ),
 			) );
 		} else {
 			echo "<span class='no-menu-assigned'>Assign a menu in the Right Menu options.</span>";

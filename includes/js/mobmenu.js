@@ -184,7 +184,7 @@
           $( '.show-nav-right .mobmenu-right-bt').first().trigger( 'click' );
           $( 'html' ).css( 'overflow', '' );
 
-          $('html, body').animate({
+          $('body').animate({
             scrollTop: target.offset().top
           }, 1000, function() {
             // Callback after animation

@@ -73,6 +73,10 @@ if ( ! class_exists( 'WP_Mobile_Menu' ) ) {
 			// Sidebar Menu Widgets.
 			add_action( 'wp_loaded', array( $this->mobmenu_core, 'register_sidebar' ) );
 
+			// Register Menus.
+			add_action( 'init', array( $this->mobmenu_core, 'register_menus' ) );
+
+
 			// Load frontend assets.
 			if ( ! is_admin() ) {
 				$this->load_frontend_assets();
