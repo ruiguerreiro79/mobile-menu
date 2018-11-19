@@ -294,7 +294,9 @@ class WP_Mobile_Menu_Core {
 					'walker'         => new WP_Mobile_Menu_Walker_Nav_Menu( 'left' ),
 				) );
 			}else {
-				echo "<span class='no-menu-assigned'>Assign a menu in the Left Menu options.</span>";
+				if ( is_admin() ) {
+					echo "<span class='no-menu-assigned'>Assign a menu in the Left Menu options.</span>";
+				}
 			}
 
 			// Check if the Left Menu Bottom Widget has any content.
@@ -355,7 +357,9 @@ class WP_Mobile_Menu_Core {
 				'walker'         => new WP_Mobile_Menu_Walker_Nav_Menu( 'right' ),
 			) );
 		} else {
-			echo "<span class='no-menu-assigned'>Assign a menu in the Right Menu options.</span>";
+			if ( is_admin() ) {
+				echo "<span class='no-menu-assigned'>Assign a menu in the Right Menu options.</span>";
+			}
 		}
 
 		// Check if the Right Menu Bottom Widget has any content.
