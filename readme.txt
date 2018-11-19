@@ -4,7 +4,7 @@ link: http://profiles.wordpress.org/takanakui
 Tags:   mobile, navigation, responsive, menu,  responsive menu, mobile menu,  tablet menu, hamburger menu, hamburger, wordpress responsive menu, wordpress mobile menu, canvas menu
 Requires at least: 4.0
 Tested up to: 4.9
-Stable tag: 2.6
+Stable tag: 2.7
 Requires PHP: 5.2.4
 License: GPLv3
 License URI: http://www.gnu.org/licenses/gpl-3.0.html
@@ -92,6 +92,23 @@ Not available at the moment
 Not available at the moment
  
 == Changelog ==  
+
+= 2.7 =
+* New!      - 2 Menu locations for the left/right menu (useful for translation plugins)
+* New!      - Option to change close icon
+* New!      - Option to change open submenu icon
+* New!      - Option to change close submenu icon
+* New!      - Sticky Header/Non sticky Header Option
+* New!      - Retina Logo Option
+* New!      - Menu items border style
+* New!      - Add Alt Text to menu icon buttons for more acessibility
+* Improved! - Restrict No menu asigned notice to admin users
+* Improved! - Icon Font Performance enhancement
+* Improved! - Font size issues fixed
+* Improved! - Freemius SDK 2.1.3 Update
+* Improved! - 2nd and 3rd level menu color options
+* Fix!      - Translation strings
+* Fix!      - W3C HTML Validations
 
 = 2.6 =
 * New!      - 3rd Depth Menu Levels

@@ -101,6 +101,23 @@ Version 2.6
     - Fix! - Alpha Color Picker
     - Fix! - Dismissable Banner
 
+Version 2.7
+
+    = 2.7 =
+    - New! - 2 Menu locations for the left/right menu (useful for translation plugins)
+    - New! - Option to change close icon
+    - New! - Option to change open submenu icon
+    - New! - Option to change close submenu icon
+    - New! - Sticky Header/Non sticky Header Option
+    - New! - Retina Logo Option
+    - New! - Menu items border style
+    - New! -  Add Alt Text to menu icon buttons for more acessibility
+    - Improved! –  Restrict No menu asigned notice to admin users
+    - Improved! –  Icon Font Performance enhancement
+    - Improved! –  Font size issues fixed
+    - Improved! –  Freemius SDK 2.1.3 Update
+    - Improved! –  2nd and 3rd level menu color options
+    - Fix! - Translation strings
+    - Fix! - W3C HTML Validations
 
 -----------------------------------------------------------
-
