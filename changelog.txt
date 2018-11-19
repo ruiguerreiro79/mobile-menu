@@ -103,7 +103,6 @@ Version 2.6
 
 Version 2.7
 
-    = 2.7 =
     - New! - 2 Menu locations for the left/right menu (useful for translation plugins)
     - New! - Option to change close icon
     - New! - Option to change open submenu icon

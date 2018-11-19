@@ -313,13 +313,14 @@ class WP_Mobile_Menu_Core {
 					</ul>
 			<?php
 			}
+		
 
-			?>
+		?>
 
 			</div><div class="mob-menu-left-bg-holder"></div></div>
 
 			<?php
-
+			}
 			if ( $titan->getOption( 'enable_right_menu' ) && ! $right_logged_in_user ) {
 				$mobmenu_parent_link = '';
 				if ( $titan->getOption( 'right_menu_parent_link_submenu' ) ) {
@@ -385,10 +386,8 @@ class WP_Mobile_Menu_Core {
 			</div><div class="mob-menu-right-bg-holder"></div></div>
 
 		<?php
-			}
 		}
 	}
-
 
 	/**
 	 *

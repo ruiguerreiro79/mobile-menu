@@ -102,7 +102,7 @@ $total_header_height = $header_height;
 	.mob-menu-left-panel .mobmenu-left-bt, .mob-menu-right-panel .mobmenu-right-bt {
 		position: absolute;
 		right: 0px;
-		top: 10px;
+		top: 0px;
 		font-size: 30px;
 	}
 
